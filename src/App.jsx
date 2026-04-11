@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 // import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { FooterMobileNavSheet } from "./FooterMobileNavSheet.jsx";
 import "./App.css";
 
 const featureCards = [
@@ -221,7 +222,7 @@ const serviceMenuItems = [
 
 const offeringsMenuItems = [
 	{
-		title: "Solar System",
+		title: "Solar Systems",
 	},
 	{
 		title: "Batteries",
@@ -240,12 +241,20 @@ const offeringsMenuItems = [
 	},
 ];
 
-function NavDropdown({ label, items, variant }) {
+function NavDropdown({
+	label,
+	items,
+	variant,
+	footerMobileSubnavKey,
+	onFooterMobileSheetOpen,
+}) {
 	const dropdownKey = label
 		.toLowerCase()
 		.replace(/[^a-z0-9]+/g, "-")
 		.replace(/^-|-$/g, "");
 	const dropdownRef = useRef(null);
+	const menuPanelRef = useRef(null);
+	const [footerDesktopPlacement, setFooterDesktopPlacement] = useState(null);
 	const isDesktopHeaderDropdown = variant === "desktop";
 	const showPanelHeader = variant === "desktop" || variant === "footer";
 	const dropdownHeader =
@@ -272,6 +281,57 @@ function NavDropdown({ label, items, variant }) {
 		document.addEventListener("click", onDocumentClick);
 		return () => {
 			document.removeEventListener("click", onDocumentClick);
+		};
+	}, [variant]);
+
+	useLayoutEffect(() => {
+		if (variant !== "footer") {
+			setFooterDesktopPlacement(null);
+			return undefined;
+		}
+
+		const details = dropdownRef.current;
+		if (!details) {
+			return undefined;
+		}
+
+		const sync = () => {
+			requestAnimationFrame(() => {
+				if (window.innerWidth <= 900) {
+					setFooterDesktopPlacement(null);
+					return;
+				}
+				if (!details.open) {
+					setFooterDesktopPlacement(null);
+					return;
+				}
+
+				const summary = details.querySelector("summary");
+				const menu = menuPanelRef.current;
+				if (!summary || !menu) {
+					return;
+				}
+
+				const sr = summary.getBoundingClientRect();
+				const vw = window.innerWidth;
+				const menuWidth = Math.min(560, vw - 32);
+				let left = sr.left + sr.width / 2 - menuWidth / 2;
+				left = Math.max(16, Math.min(left, vw - menuWidth - 16));
+				const bottom = window.innerHeight - sr.top + 10;
+
+				setFooterDesktopPlacement({ bottom, left, width: menuWidth });
+			});
+		};
+
+		details.addEventListener("toggle", sync);
+		window.addEventListener("resize", sync);
+		window.addEventListener("scroll", sync, true);
+		sync();
+
+		return () => {
+			details.removeEventListener("toggle", sync);
+			window.removeEventListener("resize", sync);
+			window.removeEventListener("scroll", sync, true);
 		};
 	}, [variant]);
 
@@ -306,6 +366,16 @@ function NavDropdown({ label, items, variant }) {
 			<summary
 				className="nav-dropdown-summary"
 				onClick={(event) => {
+					if (
+						variant === "footer" &&
+						footerMobileSubnavKey &&
+						window.matchMedia("(max-width: 900px)").matches
+					) {
+						event.preventDefault();
+						onFooterMobileSheetOpen?.(footerMobileSubnavKey);
+						return;
+					}
+
 					if (!isDesktopHeaderDropdown) {
 						return;
 					}
@@ -327,18 +397,51 @@ function NavDropdown({ label, items, variant }) {
 					dropdownElement.setAttribute("open", "");
 				}}
 			>
-				<span className="nav-dropdown-summary-text-header">{label}</span>
+				<span className={`nav-dropdown-summary-text-header label-${variant}`}>
+					{label}
+				</span>
 			</summary>
-			<div className="nav-dropdown-menu" role="menu" aria-label={label}>
+			<div
+				ref={menuPanelRef}
+				className="nav-dropdown-menu"
+				role="menu"
+				aria-label={label}
+				style={
+					footerDesktopPlacement
+						? {
+								position: "fixed",
+								left: footerDesktopPlacement.left,
+								bottom: footerDesktopPlacement.bottom,
+								width: footerDesktopPlacement.width,
+								top: "auto",
+								right: "auto",
+								transform: "none",
+							}
+						: undefined
+				}
+			>
 				{showPanelHeader ? (
 					<>
 						<div className="nav-dropdown-panel-title">{dropdownHeader}</div>
-						<div className="nav-dropdown-panel-divider" aria-hidden="true" />
+						<img
+							src={variant === "footer" ? "/line2.svg" : "/line.svg"}
+							alt=""
+							aria-hidden="true"
+							className="nav-dropdown-panel-divider"
+						/>
 					</>
 				) : null}
 				<ul className="nav-dropdown-list">
 					{items.map((item) => (
 						<li key={item.title} className="nav-dropdown-item">
+							{variant === "desktop" || variant === "footer" ? (
+								<img
+									src={variant === "desktop" ? "/bullet.svg" : "/bullet2.svg"}
+									alt=""
+									aria-hidden="true"
+									className="nav-dropdown-item-bullet"
+								/>
+							) : null}
 							{item.icon && variant === "mobile" ? (
 								<img
 									src={item.icon}
@@ -383,20 +486,24 @@ function App() {
 	const [activeRoadmapItem, setActiveRoadmapItem] = useState("vision");
 	const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 	const [mobileSubnav, setMobileSubnav] = useState(null);
+	const [footerMobileSheetKey, setFooterMobileSheetKey] = useState(null);
 	const [expandedProduct, setExpandedProduct] = useState(null);
 
 	useEffect(() => {
 		document.body.style.overflow =
-			isMobileNavOpen || isContactModalOpen ? "hidden" : "";
+			isMobileNavOpen || isContactModalOpen || footerMobileSheetKey
+				? "hidden"
+				: "";
 		return () => {
 			document.body.style.overflow = "";
 		};
-	}, [isContactModalOpen, isMobileNavOpen]);
+	}, [footerMobileSheetKey, isContactModalOpen, isMobileNavOpen]);
 
 	useEffect(() => {
 		const closeOnEscape = (event) => {
 			if (event.key === "Escape") {
 				setIsMobileNavOpen(false);
+				setMobileSubnav(null);
 				setIsContactModalOpen(false);
 			}
 		};
@@ -529,7 +636,17 @@ function App() {
 		setIsMobileNavOpen(false);
 		setMobileSubnav(null);
 	};
+
 	const openContactModal = () => setIsContactModalOpen(true);
+
+	const footerMobileSheetTitle =
+		footerMobileSheetKey === "offerings"
+			? "Our Offerings"
+			: footerMobileSheetKey === "services"
+				? "Our Services"
+				: footerMobileSheetKey === "who-we-serve"
+					? "Who We Serve"
+					: "";
 
 	const mobileNavCollections = {
 		offerings: offeringsMenuItems,
@@ -664,8 +781,7 @@ function App() {
 							aria-label="Close menu"
 							onClick={closeMobileNav}
 						>
-							<span />
-							<span />
+							<img src="/close.svg" alt="" aria-hidden="true" />
 						</button>
 
 						<nav className="mobile-nav-links" aria-label="Mobile navigation">
@@ -719,14 +835,14 @@ function App() {
 						aria-label="Mobile submenu"
 					>
 						<header className="mobile-nav-subpanel-header">
-							<button
+							{/* <button
 								type="button"
 								className="mobile-nav-subpanel-back"
 								onClick={() => setMobileSubnav(null)}
 								aria-label="Back"
 							>
 								<img src="/back.svg" alt="" aria-hidden="true" />
-							</button>
+							</button> */}
 							<strong className="mobile-nav-subpanel-title">
 								{mobileSubnav === "offerings"
 									? "Our Offerings"
@@ -738,10 +854,9 @@ function App() {
 								className="mobile-nav-subpanel-close"
 								type="button"
 								aria-label="Close menu"
-								onClick={closeMobileNav}
+								onClick={() => setMobileSubnav(null)}
 							>
-								<span />
-								<span />
+								<img src="/close.svg" alt="" aria-hidden="true" />
 							</button>
 						</header>
 						<img
@@ -1112,7 +1227,9 @@ function App() {
 							<span className="cta-contact-label">
 								Administrative Hub (HQ):
 							</span>{" "}
-							{"Block 3,\u200b Road 6b,\u200b Olusola Harris Way,\u200b Lekki Scheme 2,\u200b Ajah,\u200b Lagos State,\u200b Nigeria"}
+							{
+								"Block 3,\u200b Road 6b,\u200b Olusola Harris Way,\u200b Lekki Scheme 2,\u200b Ajah,\u200b Lagos State,\u200b Nigeria"
+							}
 						</p>
 					</div>
 					<div className="cta-contact-item">
@@ -1153,21 +1270,36 @@ function App() {
 							label="Offerings"
 							items={offeringsMenuItems}
 							variant="footer"
+							footerMobileSubnavKey="offerings"
+							onFooterMobileSheetOpen={setFooterMobileSheetKey}
 						/>
 						<NavDropdown
 							label="Services"
 							items={serviceMenuItems}
 							variant="footer"
+							footerMobileSubnavKey="services"
+							onFooterMobileSheetOpen={setFooterMobileSheetKey}
 						/>
 						<NavDropdown
 							label="Who We Serve"
 							items={whoWeServe}
 							variant="footer"
+							footerMobileSubnavKey="who-we-serve"
+							onFooterMobileSheetOpen={setFooterMobileSheetKey}
 						/>
 					</nav>
 					<p className="footer-copy">© Chika Energy 2026</p>
 				</div>
 			</footer>
+
+			{footerMobileSheetKey ? (
+				<FooterMobileNavSheet
+					key={footerMobileSheetKey}
+					title={footerMobileSheetTitle}
+					items={mobileNavCollections[footerMobileSheetKey] || []}
+					onClosed={() => setFooterMobileSheetKey(null)}
+				/>
+			) : null}
 		</div>
 	);
 }

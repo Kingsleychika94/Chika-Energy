@@ -124,7 +124,7 @@
 	top: calc(100% + 10px);
 	left: 0;
 	z-index: 80;
-	width: 360px;
+	width: min(360px, calc(100vw - 32px));
 	padding: 18px 22px 18px;
 	border-radius: 26px;
 	background: #0e2a21;
@@ -143,22 +143,19 @@
 }
 
 .desktop-nav .nav-dropdown-panel-divider {
-	height: 1px;
-	background: rgba(232, 244, 241, 0.14);
+	width: 100%;
+	height: auto;
+	display: block;
 	margin: 0 0 10px;
+	opacity: 0.9;
+	object-fit: contain;
 }
 
+/* Shared footer dropdown panel visuals; layout is desktop vs mobile in media queries. */
 .footer-nav .nav-dropdown-menu {
-	position: absolute;
-	top: calc(100% + 10px);
-	left: 0;
-	z-index: 80;
-	width: 560px;
 	padding: 18px 22px 18px;
-	border-radius: 26px;
 	background: #f2d77d;
 	color: #0d1f19;
-	box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
 	border: 0;
 }
 
@@ -172,27 +169,25 @@
 }
 
 .footer-nav .nav-dropdown-panel-divider {
-	height: 1px;
-	background: rgba(12, 33, 26, 0.18);
+	width: 100%;
+	height: auto;
+	display: block;
 	margin: 0 0 10px;
+	opacity: 0.9;
+	object-fit: contain;
 }
 
 .footer-nav .nav-dropdown-item:hover {
 	background: rgba(255, 255, 255, 0.22);
 }
 
-.footer-nav .nav-dropdown-item::before {
-	content: "›";
+.footer-nav .nav-dropdown-item-bullet {
 	position: absolute;
 	left: 10px;
 	top: 10px;
-	color: rgba(12, 33, 26, 0.45);
-	font-size: 18px;
-	line-height: 1;
-}
-
-.footer-nav .nav-dropdown-item:hover::before {
-	color: rgba(12, 33, 26, 0.7);
+	width: 18px;
+	height: 18px;
+	display: block;
 }
 
 .footer-nav .nav-dropdown-item strong {
@@ -223,22 +218,24 @@
 	padding-left: 24px;
 }
 
+#contact {
+	padding-top: 32px;
+	padding-right: 20px;
+	padding-bottom: 0px;
+	padding-left: 20px;
+}
+
 .nav-dropdown-item:hover {
 	background: #f2f4f4;
 }
 
-.desktop-nav .nav-dropdown-item::before {
-	content: "›";
+.desktop-nav .nav-dropdown-item-bullet {
 	position: absolute;
-	left: 10px;
-	top: 10px;
-	color: rgba(243, 200, 79, 0.9);
-	font-size: 18px;
-	line-height: 1;
-}
-
-.desktop-nav .nav-dropdown-item:hover::before {
-	color: #ffd166;
+	left: 8px;
+	top: 8px;
+	width: 18px;
+	height: 18px;
+	display: block;
 }
 
 .desktop-nav .nav-dropdown-item:hover {
@@ -401,7 +398,6 @@
 .mobile-nav-subpanel {
 	transform: translateX(100%);
 	transition: transform 300ms ease;
-	/* padding: 0 28px 44px; */
 	align-content: start;
 }
 
@@ -437,14 +433,6 @@
 	height: 2px;
 	border-radius: 999px;
 	background: #ffd166;
-}
-
-.mobile-nav-close span:first-child {
-	transform: rotate(45deg);
-}
-
-.mobile-nav-close span:last-child {
-	transform: rotate(-45deg);
 }
 
 .mobile-nav-links {
@@ -545,11 +533,11 @@
 
 .mobile-nav-subpanel-header {
 	width: 100%;
-	display: grid;
-	grid-template-columns: 40px 1fr 42px;
+	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	gap: 14px;
-	margin: 0 auto 38px;
+	margin: 0 auto 30px;
 	max-width: 520px;
 }
 
@@ -660,6 +648,160 @@
 	line-height: 1.4;
 	color: rgba(232, 240, 237, 0.72);
 	max-width: 420px;
+}
+
+/* Footer nav: dedicated mobile bottom sheet (separate from hamburger subpanel). */
+.footer-mobile-nav-sheet {
+	position: fixed;
+	inset: 0;
+	z-index: 50;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	pointer-events: none;
+}
+
+.footer-mobile-nav-sheet.is-open {
+	pointer-events: auto;
+}
+
+.footer-mobile-nav-sheet__backdrop {
+	position: absolute;
+	inset: 0;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	background: rgba(4, 22, 18, 0.55);
+	opacity: 0;
+	transition: opacity 0.32s ease;
+}
+
+.footer-mobile-nav-sheet.is-open .footer-mobile-nav-sheet__backdrop {
+	opacity: 1;
+}
+
+.footer-mobile-nav-sheet__panel {
+	position: relative;
+	width: 100%;
+	max-width: 520px;
+	max-height: min(88vh, calc(100dvh - 24px));
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	padding: 22px 24px max(24px, env(safe-area-inset-bottom, 0px));
+	border-radius: 22px 22px 0 0;
+	background: radial-gradient(
+		120% 80% at 50% 0%,
+		rgba(14, 52, 42, 0.98) 0%,
+		#07291f 55%,
+		#051a14 100%
+	);
+	box-shadow: 0 -16px 48px rgba(0, 0, 0, 0.45);
+	transform: translateY(100%);
+	transition: transform 0.38s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.footer-mobile-nav-sheet.is-open .footer-mobile-nav-sheet__panel {
+	transform: translateY(0);
+}
+
+.footer-mobile-nav-sheet__header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 14px;
+	margin: 0 auto 22px;
+	max-width: 520px;
+}
+
+.footer-mobile-nav-sheet__title {
+	text-align: center;
+	flex: 1;
+	font-size: clamp(1.25rem, 4.5vw, 2rem);
+	font-weight: 600;
+	color: #e8f0ed;
+	letter-spacing: -0.02em;
+}
+
+.footer-mobile-nav-sheet__close {
+	width: 40px;
+	height: 40px;
+	flex-shrink: 0;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	background: rgba(255, 255, 255, 0.16);
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+	cursor: pointer;
+	display: grid;
+	place-items: center;
+	padding: 0;
+}
+
+.footer-mobile-nav-sheet__close img {
+	width: 18px;
+	height: 18px;
+	display: block;
+}
+
+.footer-mobile-nav-sheet__divider {
+	width: 100%;
+	max-width: 520px;
+	height: auto;
+	display: block;
+	margin: 0 auto 28px;
+	opacity: 0.9;
+}
+
+.footer-mobile-nav-sheet__list {
+	width: 100%;
+	max-width: 520px;
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+	display: grid;
+	gap: 22px;
+}
+
+.footer-mobile-nav-sheet__item {
+	display: grid;
+	grid-template-columns: 20px 1fr;
+	align-items: start;
+	gap: 14px;
+	color: #e8f0ed;
+}
+
+.footer-mobile-nav-sheet__bullet {
+	width: 14px;
+	height: 14px;
+	display: block;
+	object-fit: contain;
+	margin-top: 4px;
+}
+
+.footer-mobile-nav-sheet__item-copy {
+	display: grid;
+	gap: 6px;
+	min-width: 0;
+}
+
+.footer-mobile-nav-sheet__item-title {
+	font-size: 18px;
+	line-height: 1.25;
+	color: rgba(244, 248, 245, 0.98);
+}
+
+.footer-mobile-nav-sheet__item-description {
+	font-size: 14px;
+	line-height: 1.4;
+	color: rgba(232, 240, 237, 0.72);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.footer-mobile-nav-sheet__backdrop,
+	.footer-mobile-nav-sheet__panel {
+		transition: none;
+	}
 }
 
 .hero-content {
@@ -921,7 +1063,7 @@ button {
 }
 
 .features-grid {
-	grid-template-columns: 1fr;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 	margin-bottom: 32px;
 }
 
@@ -930,6 +1072,10 @@ button {
 	background: #ffffff;
 	overflow: hidden;
 	border: 1px solid #e5e8e7;
+}
+
+.product-card {
+	min-height: stretch;
 }
 
 .feature-card {
@@ -1509,7 +1655,11 @@ button {
 	background: #07291f;
 	color: #ffffff;
 	position: relative;
-	padding: 42px 20px 40px;
+	/* padding: 42px 20px 40px; */
+	padding-top: 0px;
+	padding-right: 20px;
+	padding-bottom: 40px;
+	padding-left: 20px;
 }
 
 .footer::before {
@@ -1521,16 +1671,13 @@ button {
 	background: rgba(214, 235, 230, 0.65);
 }
 
-.footer::before {
-	top: 24px;
-}
-
 .footer::after {
 	content: none;
 }
 
 .footer-inner {
 	max-width: 960px;
+	padding-top: 18px;
 	margin: 0 auto;
 	min-height: 240px;
 	display: flex;
@@ -1554,8 +1701,9 @@ button {
 	flex-wrap: wrap;
 }
 
-.footer-nav a {
-	font-size: clamp(1.05rem, 2vw, 2.6rem);
+.footer-nav a,
+.label-footer {
+	font-size: 20px;
 	font-weight: 400;
 	letter-spacing: -0.02em;
 	opacity: 1;
@@ -1646,7 +1794,8 @@ button {
 		gap: 26px;
 	}
 
-	.footer-nav a {
+	.footer-nav a,
+	.label-footer {
 		font-size: 0.98rem;
 	}
 
@@ -1660,10 +1809,20 @@ button {
 		align-items: center;
 	}
 
+	/* Footer menu position on desktop is set inline (fixed + clamped left) so it stays on-screen. */
 	.footer-nav .nav-dropdown-menu {
-		position: static;
-		margin-top: 10px;
-		width: 260px;
+		z-index: 80;
+		border-radius: 26px;
+		box-shadow: 0 18px 50px rgba(0, 0, 0, 0.4);
+	}
+
+	.footer-nav .nav-dropdown-list {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 10px 14px;
+	}
+
+	.footer-nav .nav-dropdown-item {
+		min-width: 0;
 	}
 
 	.footer-copy {
@@ -1786,10 +1945,9 @@ button {
 		bottom: -2px;
 	}
 
-	.footer-nav .nav-dropdown-menu {
+	/* Footer nav dropdowns on mobile open the shared mobile subpanel (slide-up). */
+	.footer-nav .nav-dropdown {
 		position: static;
-		margin-top: 10px;
-		width: min(420px, 90vw);
 	}
 }
 
@@ -1920,11 +2078,11 @@ button {
 	}
 
 	.footer {
-		padding: 34px 18px 30px;
-	}
-
-	.footer::before {
-		top: 16px;
+		/* padding: 34px 18px 30px; */
+		padding-top: 0px;
+		padding-right: 18px;
+		padding-bottom: 30px;
+		padding-left: 18px;
 	}
 
 	.footer-inner {
@@ -1940,7 +2098,8 @@ button {
 		gap: 14px 22px;
 	}
 
-	.footer-nav a {
+	.footer-nav a,
+	.label-footer {
 		font-size: 14px;
 	}
 
