@@ -378,7 +378,7 @@
 	width: 100%;
 	max-width: 520px;
 	min-height: min(760px, calc(100svh - 140px));
-	overflow: hidden;
+	overflow-x: hidden;
 	padding-top: 84px;
 }
 
@@ -416,6 +416,7 @@
 	transform: translateX(-50%); */
 	width: 42px;
 	height: 42px;
+	margin-bottom: 20px;
 	border-radius: 12px;
 	border: 1px solid rgba(255, 255, 255, 0.4);
 	background: rgba(255, 255, 255, 0.24);
@@ -1074,9 +1075,9 @@ button {
 	border: 1px solid #e5e8e7;
 }
 
-.product-card {
+/* .product-card {
 	min-height: stretch;
-}
+} */
 
 .feature-card {
 	border-radius: 20px;
@@ -1988,6 +1989,8 @@ button {
 
 	.roadmap-mobile-item h4 {
 		font-size: 32px;
+		color: #080e0d;
+		font-weight: 700;
 	}
 
 	.roadmap-mobile-item p {
