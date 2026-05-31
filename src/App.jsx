@@ -8,118 +8,62 @@ const featureCards = [
 		title: "Integrity",
 		description:
 			"We act with honesty, transparency, and accountability in everything we do.",
-		image: "/images/integrity.jpg",
+		image: "/images/INTEGRITY.jpeg",
 	},
 	{
 		title: "Reliability",
 		description:
 			"We deliver dependable energy solutions that customers and partners can rely on.",
-		image: "/images/reliability.jpg",
+		image: "/images/reliability.jpeg",
 	},
 	{
 		title: "Sustainability",
 		description:
 			"We build solutions that support long-term environmental and economic progress.",
-		image: "/images/sustainability.jpg",
+		image: "/images/SUSTAINABILITY.jpeg",
 	},
 	{
 		title: "Innovation",
 		description:
 			"We continuously develop smarter and more efficient energy solutions.",
-		image: "/images/innovation.jpg",
+		image: "/images/INNOVATION.jpeg",
 		wide: true,
 	},
 	{
 		title: "Excellence",
 		description:
 			"We pursue the highest standards in quality, service, and performance.",
-		image: "/images/excellence.jpg",
+		image: "/images/EXCELLENCE.jpeg",
 	},
 ];
 
 const products = [
-	{
-		name: "CE 1-5kVA Hybrid Solar Inverter",
-		image: "/images/inverter.png",
-		description:
-			"A hybrid solar inverter designed for home and office energy systems, featuring an LCD display for real-time monitoring, built-in charge controller, and efficient power conversion for solar and battery systems.",
-	},
-	{
-		name: "CE 1.5KVA–2KVA Solar Hybrid System (Panels + Battery + Inverter)",
-		image: "/images/hybrid.png",
-		description:
-			"A complete solar power solution with panels, a hybrid inverter, and battery, designed to provide reliable electricity for mall to medium household and small businesses use.",
-	},
-	{
-		name: "CE 12V 100Ah Lithium Battery (LiFePO4)",
-		image: "/images/batterypo4.jpeg",
-		description:
-			"A durable, lightweight lithium battery designed for solar and inverter systems, offering long lifespan, fast charging, and reliable power storage.",
-	},
-	{
-		name: "CE 12V 230Ah Tubular Battery – Deep Cycle Solar Battery",
-		image: "/images/deepcycle.jpeg",
-		description:
-			"A high-performance deep-cycle tubular battery designed for solar and inverter applications. Suitable for home and office backup systems, offering long service life, strong backup capacity, and reliable performance.",
-	},
-	{
-		name: "CE Wall-Mounted Lithium Battery (Nuru Series)",
-		image: "/images/nuru2.jpeg",
-		description:
-			"A sleek wall-mounted lithium battery designed for modern solar and inverter systems, providing efficient energy storage with a compact design ideal for homes and small businesses.",
-	},
-	{
-		name: "CE 12V 1000Ah Lithium Battery (LiFePO4)",
-		image: "/images/batterypo4(2).jpeg",
-		description:
-			"A durable, lightweight lithium battery designed for solar and inverter systems, offering long lifespan, fast charging, and reliable power storage.",
-	},
-	{
-		name: "CE 48V 200Ah Lithium Battery (10.24kWh)",
-		image: "/images/battery3.jpeg",
-		description:
-			"A high-capacity lithium battery built with a durable green casing and Chika Energy branding, designed for advanced solar and inverter systems. It delivers 10.24kWh of reliable energy storage, making it ideal for powering homes, offices, and commercial setups with long-lasting performance, fast charging, and extended lifespan.",
-	},
-	{
-		name: "CE 12V 50000Ah Industrial Lithium Battery (LiFePO4)",
-		image: "/images/battery4.jpeg",
-		description:
-			"A massive, high-capacity lithium battery designed for industrial and large-scale solar energy storage. Built with advanced LiFePO4 technology, it delivers extremely long backup power, high safety, and efficient performance for heavy-duty applications like estates, factories, and commercial energy system",
-	},
-	{
-		name: "CE Solar Panel",
-		image: "/images/panels.jpeg",
-		description:
-			"A high-efficiency, durable solar panel designed to maximize energy output while withstanding harsh weather conditions. It features advanced photovoltaic cells for superior performance, long lifespan, and reliable power generation, making it ideal for residential or commercial solar systems.",
-	},
-	{
-		name: "CE 51.2V 1000Ah Industrial Lithium Battery (51kWh)",
-		image: "/images/industrial2.jpeg",
-		description:
-			"A large-capacity industrial lithium battery designed for heavy-duty energy storage, featuring a durable metal casing, integrated display and control panel, and high efficiency for powering homes, businesses, and large solar system",
-	},
-	{
-		name: "Solar System Accessories",
-		image: "/images/accesories.jpeg",
-		description: [
-			"Solar Charge Controller",
-			"MC4 Cables",
-			"Multimeter / Tester",
-			"Battery Disconnect Switch",
-			"Fuses & Holders",
-			"Connector / Terminal Blocks",
-			"Ring Terminals / Cable Lugs",
-			"Heat Shrink Tubing",
-			"Inline / MC4 Connectors",
-			"Small Accessories – Screws, fuses, test points.",
-		],
-	},
-	{
-		name: "CE 12V 200Ah Tubular Solar Battery",
-		image: "/images/tubular.jpeg",
-		description:
-			"A high-capacity deep-cycle tubular battery designed for solar and inverter systems, providing long-lasting power storage for homes and small businesses.",
-	},
+	{ name: "UpEast 1KVA Hybrid Inverter", image: "/images/p1.jpeg" },
+	{ name: "UpEast 3KVA Hybrid Inverter", image: "/images/p2.jpeg" },
+	{ name: "UpEast 5KVA Hybrid Inverter", image: "/images/p3.jpeg" },
+	{ name: "UpEast 10KVA Hybrid Inverter", image: "/images/p4.jpeg" },
+	{ name: "UpEast 20KVA Commercial Hybrid Inverter", image: "/images/p5.jpeg" },
+	{ name: "UpEast 50KVA Industrial Hybrid Inverter", image: "/images/p6.jpeg" },
+	{ name: "UpEast 100kWh Industrial Energy Storage System", image: "/images/p7.jpeg" },
+	{ name: "UpEast 15kWh Residential Lithium Battery Storage System", image: "/images/p8.jpeg" },
+	{ name: "UpEast 100kWh Commercial Industrial Energy Storage System", image: "/images/p9.jpeg" },
+	{ name: "UpEast 250kWh Commercial Industrial Energy Storage System", image: "/images/p10.jpeg" },
+	{ name: "UpEast 500kWh Commercial Industrial Energy Storage System", image: "/images/p11.jpeg" },
+	{ name: "UpEast 1MWh Commercial Industrial Energy Storage System", image: "/images/p12.jpeg" },
+	{ name: "UpEast 2MWh Commercial Industrial Energy Storage System", image: "/images/p13.jpeg" },
+	{ name: "UpEast 5MWh Commercial Industrial Energy Storage System", image: "/images/p14.jpeg" },
+	{ name: "UpEast 10MWh Commercial Industrial Energy Storage System", image: "/images/p15.jpeg" },
+	{ name: "UpEast Government Energy Solution System", image: "/images/p16.jpeg" },
+	{ name: "UpEast Energy Solution for Churches & Mosques", image: "/images/p17.jpeg" },
+	{ name: "UpEast Residential Solar Energy Solution", image: "/images/p18.jpeg" },
+	{ name: "UpEast Residential Solar Panel", image: "/images/p19.jpeg" },
+	{ name: "UpEast Commercial & Government Solar Panel Solution", image: "/images/p20.jpeg" },
+	{ name: "UpEast Glass Solar Panel Solution", image: "/images/p21.jpeg" },
+	{ name: "UpEast Transparent Glass Solar Panel Solution", image: "/images/p22.jpeg" },
+	{ name: "UpEast Solar Street Light Solution", image: "/images/p23.jpeg" },
+	{ name: "UpEast Smart Solar Street Light Solution", image: "/images/p24.jpeg" },
+	{ name: "UpEast Solar Street Light Solution for Rural Communities", image: "/images/p25.jpeg" },
+	{ name: "UpEast Solar Accessories Kit", image: "/images/p26.jpeg" },
 ];
 
 const services = [
@@ -466,16 +410,16 @@ const roadmapItems = [
 	{
 		key: "vision",
 		title: "Vision",
-		description: "To power progress and shape the future of energy.",
-		image: "/images/about-image.jpg",
+		description: "To power progress and shape the future of energy across Africa.",
+		image: "/images/vision.jpeg",
 		alt: "Solar and wind renewable energy field",
 	},
 	{
 		key: "mission",
 		title: "Mission",
 		description:
-			"To deliver reliable, innovative, and sustainable energy solutions that empower people, businesses, and communities.",
-		image: "/images/vision-image.jpg",
+			"To deliver reliable, innovative, and sustainable energy solutions that empower people, businesses, and communities across Africa.",
+		image: "/images/mission.jpeg",
 		alt: "Hydro power facility at sunset",
 	},
 ];
@@ -674,13 +618,13 @@ function App() {
               CE
             </div>
             <div className="brand-copy">
-              <strong>Chika Energy</strong>
+              <strong>Upeast Energies</strong>
               <span>Renewables</span>
             </div> */}
 						<img
-							src="CE_logo.svg"
+							src="UE-logo.svg"
 							className="brand-logo"
-							alt="Chika Energy Logo"
+							alt="Upeast Energies Logo"
 						/>
 					</div>
 					<nav className="desktop-nav">
@@ -750,10 +694,13 @@ function App() {
 				</header>
 
 				<div className="hero-content">
-					<h1>Powering the Future of Energy in Africa</h1>
+					<h1>
+					Powering the Future of Energy in Africa
+					{/* Powering the Future, Today */}
+					</h1>
 					<p>
 						We deliver reliable, innovative, and sustainable renewable energy
-						solutions for homes, businesses, institutions, and communities.
+						solutions for homes, businesses, institutions, and communities across Africa.
 					</p>
 					<a
 						href="#about"
@@ -897,13 +844,13 @@ function App() {
 						<span className="section-badge">About us</span>
 						<h2>Innovative Energy Solutions with Long-Term Impact</h2>
 						<p>
-							Chika Energy Solutions Limited is an innovative energy and
+							Upeast Energies Solutions Limited is an innovative energy and
 							infrastructure company committed to delivering reliable,
 							efficient, and sustainable power solutions. Through advanced
 							technology, strategic partnerships, and industry expertise, the
 							company develops and manages energy systems that support economic
 							growth and strengthen communities. With a commitment to excellence
-							and long-term impact, Chika Energy Solutions provides
+							and long-term impact, Upeast Energies Solutions provides
 							forward-thinking solutions that power industries, enable
 							development, and help shape the future
 						</p>
@@ -914,7 +861,7 @@ function App() {
 							<article className="roadmap-copy">
 								<h3>Future roadmap</h3>
 								<p>
-									Chika Energy Solutions Limited is committed to becoming the
+									Upeast Energies Solutions Limited is committed to becoming the
 									leading diversified energy company that makes reliable,
 									affordable, and clean energy accessible to everyone. We focus
 									on closing the energy gap, empowering communities, and
@@ -959,7 +906,7 @@ function App() {
 							<header className="roadmap-mobile-intro">
 								<h3>Future roadmap</h3>
 								<p>
-									Chika Energy Solutions Limited is committed to becoming the
+									Upeast Energies Solutions Limited is committed to becoming the
 									leading diversified energy company in Africa by delivering
 									reliable, affordable, and clean energy that closes the energy
 									gap and drives sustainable growth.
@@ -980,7 +927,7 @@ function App() {
 						<span className="section-badge">Core values</span>
 						<h2>Quality, Trust, and Measurable Impact</h2>
 						<p>
-							Chika Energy delivers reliable, sustainable, and innovative energy
+							Upeast Energies delivers reliable, sustainable, and innovative energy
 							with integrity, reliability, sustainability, innovation, and
 							excellence at the center of every project.
 						</p>
@@ -1023,52 +970,56 @@ function App() {
 									<img src={item.image} alt={item.name} className="pc-image" />
 								</div>
 								<div className="product-card-body">
-									<h5>{item.name}</h5>
-									<button
-										type="button"
-										className="product-details-toggle"
-										aria-expanded={expandedProduct === item.name}
-										aria-controls={`product-details-${item.name
-											.toLowerCase()
-											.replace(/[^a-z0-9]+/g, "-")
-											.replace(/^-|-$/g, "")}`}
-										onClick={() =>
-											setExpandedProduct((current) =>
-												current === item.name ? null : item.name,
-											)
-										}
-									>
-										<span>
-											{expandedProduct === item.name
-												? "Hide details"
-												: "View details"}
-										</span>
-										<img
-											className="product-details-toggle-icon"
-											src="/details.svg"
-											alt=""
-											aria-hidden="true"
-										/>
-									</button>
-									<div
-										className={`product-details-panel${
-											expandedProduct === item.name ? " is-open" : ""
-										}`}
-										id={`product-details-${item.name
-											.toLowerCase()
-											.replace(/[^a-z0-9]+/g, "-")
-											.replace(/^-|-$/g, "")}`}
-									>
-										{Array.isArray(item.description) ? (
-											<ul className="product-details-list">
-												{item.description.map((entry) => (
-													<li key={entry}>{entry}</li>
-												))}
-											</ul>
-										) : (
-											<p className="product-details-text">{item.description}</p>
-										)}
-									</div>
+									{/* <h5>{item.name}</h5> */}
+									{item.description ? (
+										<>
+											<button
+												type="button"
+												className="product-details-toggle"
+												aria-expanded={expandedProduct === item.name}
+												aria-controls={`product-details-${item.name
+													.toLowerCase()
+													.replace(/[^a-z0-9]+/g, "-")
+													.replace(/^-|-$/g, "")}`}
+												onClick={() =>
+													setExpandedProduct((current) =>
+														current === item.name ? null : item.name,
+													)
+												}
+											>
+												<span>
+													{expandedProduct === item.name
+														? "Hide details"
+														: "View details"}
+												</span>
+												<img
+													className="product-details-toggle-icon"
+													src="/details.svg"
+													alt=""
+													aria-hidden="true"
+												/>
+											</button>
+											<div
+												className={`product-details-panel${
+													expandedProduct === item.name ? " is-open" : ""
+												}`}
+												id={`product-details-${item.name
+													.toLowerCase()
+													.replace(/[^a-z0-9]+/g, "-")
+													.replace(/^-|-$/g, "")}`}
+											>
+												{Array.isArray(item.description) ? (
+													<ul className="product-details-list">
+														{item.description.map((entry) => (
+															<li key={entry}>{entry}</li>
+														))}
+													</ul>
+												) : (
+													<p className="product-details-text">{item.description}</p>
+												)}
+											</div>
+										</>
+									) : null}
 									<button
 										type="button"
 										className="product-quote-link"
@@ -1176,8 +1127,8 @@ function App() {
 									<span className="contact-modal-detail-label">
 										Email Address:
 									</span>{" "}
-									<a href="mailto:contact@chikaenergy.com">
-										contact@chikaenergy.com
+									<a href="mailto:contact@upeastenergies.com">
+										contact@upeastenergies.com
 									</a>
 								</p>
 							</div>
@@ -1252,6 +1203,17 @@ function App() {
 							<a href="tel:+2347086020732">+234 708 602 0732</a>
 						</p>
 					</div>
+					<div className="cta-contact-social-media">
+						<a href="https://www.facebook.com/share/14d1Csw9AZ7/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+							<img src="/facebook.svg" alt="Facebook" />
+						</a>
+						<a href="https://www.linkedin.com/company/upeast-energies/" target="_blank" rel="noopener noreferrer">
+							<img src="/linkedin.svg" alt="Linkedin" />
+						</a>
+						<a href="https://www.instagram.com/upeastenergies?igsh=cXd3dTg1NDhzajB5&utm_source=qr" target="_blank" rel="noopener noreferrer">
+							<img src="/instagram.svg" alt="Instagram" />
+						</a>
+					</div>
 				</div>
 				<div className="cta-image-container">
 					<img src="/images/sparks.png" className="cta-image" alt="CTA Image" />
@@ -1260,7 +1222,7 @@ function App() {
 
 			<footer className="footer">
 				<div className="footer-inner">
-					<img src="/CE_logo.svg" className="footer-logo" alt="Chika Energy" />
+					<img src="/UE-logo.svg" className="footer-logo" alt="Upeast Energies" />
 					<nav className="footer-nav" aria-label="Footer">
 						<a href="#home">Home</a>
 						<a href="#about">About Us</a>
@@ -1288,7 +1250,7 @@ function App() {
 							onFooterMobileSheetOpen={setFooterMobileSheetKey}
 						/>
 					</nav>
-					<p className="footer-copy">© Chika Energy 2026</p>
+					<p className="footer-copy">© Upeast Energies 2026</p>
 				</div>
 			</footer>
 
