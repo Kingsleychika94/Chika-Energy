@@ -1172,14 +1172,14 @@ button {
 		height: auto;
 	object-fit: cover;
 	object-position: top center;
-	/* background: #f8f8f6; */
+	background: #f8f8f6;
 }
 
 .product-card-body {
 	padding: 14px 10px 10px;
 	display: flex;
 	flex-direction: column;
-	/* min-height: 152px; */
+	flex: 1;
 }
 
 .product-card h5 {
