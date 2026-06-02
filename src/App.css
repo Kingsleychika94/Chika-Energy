@@ -1169,7 +1169,7 @@ button {
 
 .product-card-media img {
 	width: 100%;
-		height: auto;
+	height: auto;
 	object-fit: cover;
 	object-position: top center;
 	background: #f8f8f6;
@@ -1347,6 +1347,54 @@ button {
 		opacity: 1;
 		transform: translateY(0) scale(1);
 	}
+}
+
+.image-preview-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(4, 18, 19, 0.82);
+	backdrop-filter: blur(4px);
+	z-index: 200;
+	display: grid;
+	place-items: center;
+	padding: 20px;
+	animation: modalIn 220ms ease-out;
+}
+
+.image-preview-img {
+	max-width: min(700px, 100%);
+	max-height: 85dvh;
+	width: auto;
+	height: auto;
+	object-fit: contain;
+	border-radius: 12px;
+	box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
+}
+
+.image-preview-close {
+	position: fixed;
+	top: 20px;
+	right: 16px;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	border: 0;
+	background: rgba(255, 255, 255, 0.15);
+	color: #ffffff;
+	font-size: 36px;
+	line-height: 1;
+	cursor: pointer;
+	display: grid;
+	place-items: center;
+	transition: background 150ms;
+}
+
+.image-preview-close:hover {
+	background: rgba(255, 255, 255, 0.28);
+}
+
+.product-card-media[role="button"] {
+	cursor: zoom-in;
 }
 
 .contact-modal-close {
@@ -1751,7 +1799,7 @@ button {
 	pointer-events: none;
 }
 
-.cta-contact-social-media{
+.cta-contact-social-media {
 	display: flex;
 	align-items: center;
 	gap: 10px;

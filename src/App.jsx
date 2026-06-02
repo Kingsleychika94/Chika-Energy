@@ -432,16 +432,20 @@ function App() {
 	const [mobileSubnav, setMobileSubnav] = useState(null);
 	const [footerMobileSheetKey, setFooterMobileSheetKey] = useState(null);
 	const [expandedProduct, setExpandedProduct] = useState(null);
+	const [productImagePreview, setProductImagePreview] = useState(null);
 
 	useEffect(() => {
 		document.body.style.overflow =
-			isMobileNavOpen || isContactModalOpen || footerMobileSheetKey
+			isMobileNavOpen ||
+			isContactModalOpen ||
+			footerMobileSheetKey ||
+			productImagePreview
 				? "hidden"
 				: "";
 		return () => {
 			document.body.style.overflow = "";
 		};
-	}, [footerMobileSheetKey, isContactModalOpen, isMobileNavOpen]);
+	}, [footerMobileSheetKey, isContactModalOpen, isMobileNavOpen, productImagePreview]);
 
 	useEffect(() => {
 		const closeOnEscape = (event) => {
@@ -449,6 +453,7 @@ function App() {
 				setIsMobileNavOpen(false);
 				setMobileSubnav(null);
 				setIsContactModalOpen(false);
+				setProductImagePreview(null);
 			}
 		};
 
@@ -618,13 +623,13 @@ function App() {
               CE
             </div>
             <div className="brand-copy">
-              <strong>Upeast Energies</strong>
+              <strong>UpEast Energies</strong>
               <span>Renewables</span>
             </div> */}
 						<img
 							src="UE-logo.svg"
 							className="brand-logo"
-							alt="Upeast Energies Logo"
+							alt="UpEast Energies Logo"
 						/>
 					</div>
 					<nav className="desktop-nav">
@@ -844,13 +849,13 @@ function App() {
 						<span className="section-badge">About us</span>
 						<h2>Innovative Energy Solutions with Long-Term Impact</h2>
 						<p>
-							Upeast Energies Solutions Limited is an innovative energy and
+							UpEast Energies Solutions Limited is an innovative energy and
 							infrastructure company committed to delivering reliable,
 							efficient, and sustainable power solutions. Through advanced
 							technology, strategic partnerships, and industry expertise, the
 							company develops and manages energy systems that support economic
 							growth and strengthen communities. With a commitment to excellence
-							and long-term impact, Upeast Energies Solutions provides
+							and long-term impact, UpEast Energies Solutions provides
 							forward-thinking solutions that power industries, enable
 							development, and help shape the future
 						</p>
@@ -861,7 +866,7 @@ function App() {
 							<article className="roadmap-copy">
 								<h3>Future roadmap</h3>
 								<p>
-									Upeast Energies Solutions Limited is committed to becoming the
+									UpEast Energies Solutions Limited is committed to becoming the
 									leading diversified energy company that makes reliable,
 									affordable, and clean energy accessible to everyone. We focus
 									on closing the energy gap, empowering communities, and
@@ -906,7 +911,7 @@ function App() {
 							<header className="roadmap-mobile-intro">
 								<h3>Future roadmap</h3>
 								<p>
-									Upeast Energies Solutions Limited is committed to becoming the
+									UpEast Energies Solutions Limited is committed to becoming the
 									leading diversified energy company in Africa by delivering
 									reliable, affordable, and clean energy that closes the energy
 									gap and drives sustainable growth.
@@ -927,7 +932,7 @@ function App() {
 						<span className="section-badge">Core values</span>
 						<h2>Quality, Trust, and Measurable Impact</h2>
 						<p>
-							Upeast Energies delivers reliable, sustainable, and innovative energy
+							UpEast Energies delivers reliable, sustainable, and innovative energy
 							with integrity, reliability, sustainability, innovation, and
 							excellence at the center of every project.
 						</p>
@@ -966,7 +971,19 @@ function App() {
 					<section className="products-grid">
 						{products.map((item) => (
 							<article key={item.name} className="product-card">
-								<div className="product-card-media">
+								<div
+									className="product-card-media"
+									role="button"
+									tabIndex={0}
+									aria-label={`View ${item.name} image`}
+									onClick={() => setProductImagePreview({ src: item.image, alt: item.name })}
+									onKeyDown={(e) => {
+										if (e.key === "Enter" || e.key === " ") {
+											e.preventDefault();
+											setProductImagePreview({ src: item.image, alt: item.name });
+										}
+									}}
+								>
 									<img src={item.image} alt={item.name} className="pc-image" />
 								</div>
 								<div className="product-card-body">
@@ -1127,8 +1144,8 @@ function App() {
 									<span className="contact-modal-detail-label">
 										Email Address:
 									</span>{" "}
-									<a href="mailto:contact@upeastenergies.com">
-										contact@upeastenergies.com
+									<a href="mailto:contact@UpEastenergies.com">
+										contact@UpEastenergies.com
 									</a>
 								</p>
 							</div>
@@ -1154,6 +1171,29 @@ function App() {
 							</div>
 						</div>
 					</section>
+				</div>
+			)}
+
+			{productImagePreview && (
+				<div
+					className="image-preview-overlay"
+					onClick={() => setProductImagePreview(null)}
+					role="presentation"
+				>
+					<button
+						type="button"
+						className="image-preview-close"
+						onClick={() => setProductImagePreview(null)}
+						aria-label="Close image preview"
+					>
+						&times;
+					</button>
+					<img
+						src={productImagePreview.src}
+						alt={productImagePreview.alt}
+						className="image-preview-img"
+						onClick={(e) => e.stopPropagation()}
+					/>
 				</div>
 			)}
 
@@ -1207,10 +1247,10 @@ function App() {
 						<a href="https://www.facebook.com/share/14d1Csw9AZ7/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
 							<img src="/facebook.svg" alt="Facebook" />
 						</a>
-						<a href="https://www.linkedin.com/company/upeast-energies/" target="_blank" rel="noopener noreferrer">
+						<a href="https://www.linkedin.com/company/UpEast-energies/" target="_blank" rel="noopener noreferrer">
 							<img src="/linkedin.svg" alt="Linkedin" />
 						</a>
-						<a href="https://www.instagram.com/upeastenergies?igsh=cXd3dTg1NDhzajB5&utm_source=qr" target="_blank" rel="noopener noreferrer">
+						<a href="https://www.instagram.com/UpEastenergies?igsh=cXd3dTg1NDhzajB5&utm_source=qr" target="_blank" rel="noopener noreferrer">
 							<img src="/instagram.svg" alt="Instagram" />
 						</a>
 					</div>
@@ -1222,7 +1262,7 @@ function App() {
 
 			<footer className="footer">
 				<div className="footer-inner">
-					<img src="/UE-logo.svg" className="footer-logo" alt="Upeast Energies" />
+					<img src="/UE-logo.svg" className="footer-logo" alt="UpEast Energies" />
 					<nav className="footer-nav" aria-label="Footer">
 						<a href="#home">Home</a>
 						<a href="#about">About Us</a>
@@ -1250,7 +1290,7 @@ function App() {
 							onFooterMobileSheetOpen={setFooterMobileSheetKey}
 						/>
 					</nav>
-					<p className="footer-copy">© Upeast Energies 2026</p>
+					<p className="footer-copy">© UpEast Energies 2026</p>
 				</div>
 			</footer>
 
