@@ -53,29 +53,40 @@ function startServer() {
   return new Promise((resolve) => server.listen(0, '127.0.0.1', () => resolve(server)));
 }
 
-async function main() {
-  let chromium;
-  try {
-    ({ chromium } = await import('playwright'));
-  } catch {
-    console.warn('[prerender] playwright not installed — skipping prerender (SPA build kept).');
-    return;
+async function launchBrowser() {
+  // Driver: playwright-core (no bundled browser download).
+  const { chromium } = await import('playwright-core');
+
+  // Local/dev override: point at any Chromium you already have.
+  if (process.env.PLAYWRIGHT_CHROMIUM_PATH) {
+    return chromium.launch({
+      headless: true,
+      executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH,
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
   }
 
+  // CI / AWS Amplify (Amazon Linux): @sparticuz/chromium ships a Chromium
+  // that runs on Amazon Linux WITHOUT installing OS packages (no apt-get / no
+  // --with-deps), which is exactly what the Amplify build image needs.
+  const sparticuz = (await import('@sparticuz/chromium')).default;
+  return chromium.launch({
+    headless: true,
+    executablePath: await sparticuz.executablePath(),
+    args: sparticuz.args,
+  });
+}
+
+async function main() {
   const server = await startServer();
   const { port } = server.address();
   const base = `http://127.0.0.1:${port}`;
 
   let browser;
   try {
-    browser = await chromium.launch({
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      // PLAYWRIGHT_CHROMIUM_PATH is only for local/dev overrides; in CI leave it
-      // unset and let `npx playwright install chromium` provide the browser.
-      executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined,
-    });
+    browser = await launchBrowser();
   } catch (e) {
-    console.warn('[prerender] could not launch Chromium — skipping prerender:', e.message);
+    console.warn('[prerender] could not launch Chromium — skipping prerender (SPA build kept):', e.message);
     server.close();
     return;
   }
