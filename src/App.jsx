@@ -987,7 +987,7 @@ function App() {
 									<img src={item.image} alt={item.name} className="pc-image" />
 								</div>
 								<div className="product-card-body">
-									{/* <h5>{item.name}</h5> */}
+									<h3 className="product-card-title">{item.name}</h3>
 									{item.description ? (
 										<>
 											<button

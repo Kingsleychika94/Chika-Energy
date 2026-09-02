@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<!-- Replace https://www.upeastenergies.com with your live origin (required for canonical & Open Graph). -->
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -38,9 +37,10 @@
 		<meta name="referrer" content="strict-origin-when-cross-origin" />
 
 		<!-- Icons -->
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-		<link rel="mask-icon" href="/favicon.ico" color="#07291f" />
-		<link rel="apple-touch-icon" href="/favicon.ico" />
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="icon" type="image/svg+xml" href="/UE-logo.svg" />
+		<link rel="mask-icon" href="/UE-logo.svg" color="#07291f" />
+		<link rel="apple-touch-icon" href="/UE-logo.svg" />
 
 		<!-- Open Graph -->
 		<meta property="og:type" content="website" />
@@ -88,17 +88,81 @@
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
-				"@type": "Organization",
-				"name": "Upeast Energies",
-				"legalName": "Upeast Energies Solutions Limited",
-				"description": "Renewable energy company providing solar, battery storage, and clean energy solutions for homes, businesses, and institutions.",
-				"url": "https://www.upeastenergies.com/",
-				"logo": "https://www.upeastenergies.com/UE-logo.svg",
-				"image": "https://www.upeastenergies.com/og-image.jpeg",
-				"areaServed": {
-					"@type": "Place",
-					"name": "Africa"
-				}
+				"@graph": [
+					{
+						"@type": "Organization",
+						"@id": "https://www.upeastenergies.com/#organization",
+						"name": "UpEast Energies",
+						"alternateName": "Upeast Energies",
+						"legalName": "UpEast Energies Solutions Limited",
+						"description": "Renewable energy and infrastructure company providing reliable solar power, battery storage, inverters, and clean energy solutions for homes, businesses, institutions, and governments across Africa.",
+						"slogan": "Powering the Future of Energy in Africa",
+						"url": "https://www.upeastenergies.com/",
+						"logo": "https://www.upeastenergies.com/UE-logo.svg",
+						"image": "https://www.upeastenergies.com/og-image.jpeg",
+						"email": "contact@upeastenergies.com",
+						"telephone": "+234-708-602-0732",
+						"areaServed": { "@type": "Place", "name": "Africa" },
+						"location": [
+							{
+								"@type": "Place",
+								"name": "UpEast Energies — Administrative Hub (HQ)",
+								"address": {
+									"@type": "PostalAddress",
+									"streetAddress": "Block 3, Road 6b, Olusola Harris Way, Lekki Scheme 2, Ajah",
+									"addressLocality": "Lagos",
+									"addressRegion": "Lagos State",
+									"addressCountry": "NG"
+								}
+							},
+							{
+								"@type": "Place",
+								"name": "UpEast Energies — Operations Hub (Warehouse & Logistics Centre)",
+								"address": {
+									"@type": "PostalAddress",
+									"streetAddress": "Port Harcourt Road",
+									"addressLocality": "Aba",
+									"addressRegion": "Abia State",
+									"addressCountry": "NG"
+								}
+							}
+						],
+						"contactPoint": {
+							"@type": "ContactPoint",
+							"contactType": "customer service",
+							"telephone": "+234-708-602-0732",
+							"email": "contact@upeastenergies.com",
+							"areaServed": "NG",
+							"availableLanguage": "en"
+						},
+						"sameAs": [
+							"https://www.facebook.com/share/14d1Csw9AZ7/",
+							"https://www.linkedin.com/company/UpEast-energies/",
+							"https://www.instagram.com/UpEastenergies"
+						],
+						"hasOfferCatalog": {
+							"@type": "OfferCatalog",
+							"name": "Renewable Energy Products & Solutions",
+							"itemListElement": [
+								{ "@type": "OfferCatalog", "name": "Solar Systems" },
+								{ "@type": "OfferCatalog", "name": "Batteries & Energy Storage" },
+								{ "@type": "OfferCatalog", "name": "Inverters" },
+								{ "@type": "OfferCatalog", "name": "Solar Panels" },
+								{ "@type": "OfferCatalog", "name": "Solar Kits" },
+								{ "@type": "OfferCatalog", "name": "Solar Accessories" },
+								{ "@type": "OfferCatalog", "name": "Solar Street Lights" }
+							]
+						}
+					},
+					{
+						"@type": "WebSite",
+						"@id": "https://www.upeastenergies.com/#website",
+						"url": "https://www.upeastenergies.com/",
+						"name": "UpEast Energies",
+						"publisher": { "@id": "https://www.upeastenergies.com/#organization" },
+						"inLanguage": "en"
+					}
+				]
 			}
 		</script>
 	</head>

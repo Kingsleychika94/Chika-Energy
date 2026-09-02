@@ -1190,6 +1190,14 @@ button {
 	color: #091313;
 }
 
+.product-card-title {
+	margin: 0 0 12px;
+	font-size: 15px;
+	line-height: 1.35;
+	font-weight: 600;
+	color: #091313;
+}
+
 .product-quote-link {
 	border: 0;
 	background: transparent;

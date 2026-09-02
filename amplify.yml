@@ -1,0 +1,22 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Install dependencies
+        - npm install --no-audit --no-fund
+        # Install the Chromium the prerender step drives (with OS libs).
+        # If this line ever fails on the build image, the build still succeeds:
+        # prerender.mjs is fail-soft and falls back to the normal SPA output.
+        - npx playwright install --with-deps chromium
+    build:
+      commands:
+        # Runs `vite build` then `node prerender.mjs` (see package.json "build")
+        - npm run build
+  artifacts:
+    baseDirectory: dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
