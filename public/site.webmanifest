@@ -1,0 +1,14 @@
+{
+  "name": "UpEast Energies",
+  "short_name": "UpEast",
+  "description": "Reliable solar, battery, and renewable energy solutions across Africa.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07291f",
+  "theme_color": "#07291f",
+  "icons": [
+    { "src": "/favicon-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon-512x512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
