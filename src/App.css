@@ -62,7 +62,7 @@
 }
 
 .brand-logo {
-	height: 52px;
+	height: 70px;
 	/* width: 126px; */
 }
 
@@ -1859,7 +1859,7 @@ button {
 
 	.footer-logo {
 		justify-self: start;
-		height: 52px;
+		height: 75px;
 	}
 
 	.footer-nav {
@@ -2031,7 +2031,7 @@ button {
 		padding-top: 2px;
 	}
 	.brand-logo {
-		height: 40px;
+		height: 60px;
 		/* width: 98px; */
 	}
 

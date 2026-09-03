@@ -44,25 +44,73 @@ const products = [
 	{ name: "UpEast 10KVA Hybrid Inverter", image: "/images/p4.jpeg" },
 	{ name: "UpEast 20KVA Commercial Hybrid Inverter", image: "/images/p5.jpeg" },
 	{ name: "UpEast 50KVA Industrial Hybrid Inverter", image: "/images/p6.jpeg" },
-	{ name: "UpEast 100kWh Industrial Energy Storage System", image: "/images/p7.jpeg" },
-	{ name: "UpEast 15kWh Residential Lithium Battery Storage System", image: "/images/p8.jpeg" },
-	{ name: "UpEast 100kWh Commercial Industrial Energy Storage System", image: "/images/p9.jpeg" },
-	{ name: "UpEast 250kWh Commercial Industrial Energy Storage System", image: "/images/p10.jpeg" },
-	{ name: "UpEast 500kWh Commercial Industrial Energy Storage System", image: "/images/p11.jpeg" },
-	{ name: "UpEast 1MWh Commercial Industrial Energy Storage System", image: "/images/p12.jpeg" },
-	{ name: "UpEast 2MWh Commercial Industrial Energy Storage System", image: "/images/p13.jpeg" },
-	{ name: "UpEast 5MWh Commercial Industrial Energy Storage System", image: "/images/p14.jpeg" },
-	{ name: "UpEast 10MWh Commercial Industrial Energy Storage System", image: "/images/p15.jpeg" },
-	{ name: "UpEast Government Energy Solution System", image: "/images/p16.jpeg" },
-	{ name: "UpEast Energy Solution for Churches & Mosques", image: "/images/p17.jpeg" },
-	{ name: "UpEast Residential Solar Energy Solution", image: "/images/p18.jpeg" },
+	{
+		name: "UpEast 100kWh Industrial Energy Storage System",
+		image: "/images/p7.jpeg",
+	},
+	{
+		name: "UpEast 15kWh Residential Lithium Battery Storage System",
+		image: "/images/p8.jpeg",
+	},
+	{
+		name: "UpEast 100kWh Commercial Industrial Energy Storage System",
+		image: "/images/p9.jpeg",
+	},
+	{
+		name: "UpEast 250kWh Commercial Industrial Energy Storage System",
+		image: "/images/p10.jpeg",
+	},
+	{
+		name: "UpEast 500kWh Commercial Industrial Energy Storage System",
+		image: "/images/p11.jpeg",
+	},
+	{
+		name: "UpEast 1MWh Commercial Industrial Energy Storage System",
+		image: "/images/p12.jpeg",
+	},
+	{
+		name: "UpEast 2MWh Commercial Industrial Energy Storage System",
+		image: "/images/p13.jpeg",
+	},
+	{
+		name: "UpEast 5MWh Commercial Industrial Energy Storage System",
+		image: "/images/p14.jpeg",
+	},
+	{
+		name: "UpEast 10MWh Commercial Industrial Energy Storage System",
+		image: "/images/p15.jpeg",
+	},
+	{
+		name: "UpEast Government Energy Solution System",
+		image: "/images/p16.jpeg",
+	},
+	{
+		name: "UpEast Energy Solution for Churches & Mosques",
+		image: "/images/p17.jpeg",
+	},
+	{
+		name: "UpEast Residential Solar Energy Solution",
+		image: "/images/p18.jpeg",
+	},
 	{ name: "UpEast Residential Solar Panel", image: "/images/p19.jpeg" },
-	{ name: "UpEast Commercial & Government Solar Panel Solution", image: "/images/p20.jpeg" },
+	{
+		name: "UpEast Commercial & Government Solar Panel Solution",
+		image: "/images/p20.jpeg",
+	},
 	{ name: "UpEast Glass Solar Panel Solution", image: "/images/p21.jpeg" },
-	{ name: "UpEast Transparent Glass Solar Panel Solution", image: "/images/p22.jpeg" },
+	{
+		name: "UpEast Transparent Glass Solar Panel Solution",
+		image: "/images/p22.jpeg",
+	},
 	{ name: "UpEast Solar Street Light Solution", image: "/images/p23.jpeg" },
-	{ name: "UpEast Smart Solar Street Light Solution", image: "/images/p24.jpeg" },
-	{ name: "UpEast Solar Street Light Solution for Rural Communities", image: "/images/p25.jpeg" },
+	{
+		name: "UpEast Smart Solar Street Light Solution",
+		image: "/images/p24.jpeg",
+	},
+	{
+		name: "UpEast Solar Street Light Solution for Rural Communities",
+		image: "/images/p25.jpeg",
+	},
 	{ name: "UpEast Solar Accessories Kit", image: "/images/p26.jpeg" },
 ];
 
@@ -410,7 +458,8 @@ const roadmapItems = [
 	{
 		key: "vision",
 		title: "Vision",
-		description: "To power progress and shape the future of energy across Africa.",
+		description:
+			"To power progress and shape the future of energy across Africa.",
 		image: "/images/vision.jpeg",
 		alt: "Solar and wind renewable energy field",
 	},
@@ -445,7 +494,12 @@ function App() {
 		return () => {
 			document.body.style.overflow = "";
 		};
-	}, [footerMobileSheetKey, isContactModalOpen, isMobileNavOpen, productImagePreview]);
+	}, [
+		footerMobileSheetKey,
+		isContactModalOpen,
+		isMobileNavOpen,
+		productImagePreview,
+	]);
 
 	useEffect(() => {
 		const closeOnEscape = (event) => {
@@ -700,12 +754,13 @@ function App() {
 
 				<div className="hero-content">
 					<h1>
-					Powering the Future of Energy in Africa
-					{/* Powering the Future, Today */}
+						Powering the Future of Energy in Africa
+						{/* Powering the Future, Today */}
 					</h1>
 					<p>
 						We deliver reliable, innovative, and sustainable renewable energy
-						solutions for homes, businesses, institutions, and communities across Africa.
+						solutions for homes, businesses, institutions, and communities
+						across Africa.
 					</p>
 					<a
 						href="#about"
@@ -932,9 +987,9 @@ function App() {
 						<span className="section-badge">Core values</span>
 						<h2>Quality, Trust, and Measurable Impact</h2>
 						<p>
-							UpEast Energies delivers reliable, sustainable, and innovative energy
-							with integrity, reliability, sustainability, innovation, and
-							excellence at the center of every project.
+							UpEast Energies delivers reliable, sustainable, and innovative
+							energy with integrity, reliability, sustainability, innovation,
+							and excellence at the center of every project.
 						</p>
 					</section>
 
@@ -976,11 +1031,16 @@ function App() {
 									role="button"
 									tabIndex={0}
 									aria-label={`View ${item.name} image`}
-									onClick={() => setProductImagePreview({ src: item.image, alt: item.name })}
+									onClick={() =>
+										setProductImagePreview({ src: item.image, alt: item.name })
+									}
 									onKeyDown={(e) => {
 										if (e.key === "Enter" || e.key === " ") {
 											e.preventDefault();
-											setProductImagePreview({ src: item.image, alt: item.name });
+											setProductImagePreview({
+												src: item.image,
+												alt: item.name,
+											});
 										}
 									}}
 								>
@@ -1032,7 +1092,9 @@ function App() {
 														))}
 													</ul>
 												) : (
-													<p className="product-details-text">{item.description}</p>
+													<p className="product-details-text">
+														{item.description}
+													</p>
 												)}
 											</div>
 										</>
@@ -1144,8 +1206,8 @@ function App() {
 									<span className="contact-modal-detail-label">
 										Email Address:
 									</span>{" "}
-									<a href="mailto:contact@UpEastenergies.com">
-										contact@UpEastenergies.com
+									<a href="mailto:contact@upeastenergies.com">
+										contact@upeastenergies.com
 									</a>
 								</p>
 							</div>
@@ -1244,13 +1306,25 @@ function App() {
 						</p>
 					</div>
 					<div className="cta-contact-social-media">
-						<a href="https://www.facebook.com/share/14d1Csw9AZ7/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+						<a
+							href="https://www.facebook.com/share/14d1Csw9AZ7/?mibextid=wwXIfr"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 							<img src="/facebook.svg" alt="Facebook" />
 						</a>
-						<a href="https://www.linkedin.com/company/UpEast-energies/" target="_blank" rel="noopener noreferrer">
+						<a
+							href="https://www.linkedin.com/company/UpEast-energies/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 							<img src="/linkedin.svg" alt="Linkedin" />
 						</a>
-						<a href="https://www.instagram.com/UpEastenergies?igsh=cXd3dTg1NDhzajB5&utm_source=qr" target="_blank" rel="noopener noreferrer">
+						<a
+							href="https://www.instagram.com/UpEastenergies?igsh=cXd3dTg1NDhzajB5&utm_source=qr"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 							<img src="/instagram.svg" alt="Instagram" />
 						</a>
 					</div>
@@ -1262,7 +1336,11 @@ function App() {
 
 			<footer className="footer">
 				<div className="footer-inner">
-					<img src="/UE-logo.svg" className="footer-logo" alt="UpEast Energies" />
+					<img
+						src="/UE-logo.svg"
+						className="footer-logo"
+						alt="UpEast Energies"
+					/>
 					<nav className="footer-nav" aria-label="Footer">
 						<a href="#home">Home</a>
 						<a href="#about">About Us</a>
