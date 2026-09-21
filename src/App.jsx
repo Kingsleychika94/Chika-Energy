@@ -1222,7 +1222,7 @@ function App() {
 							</div>
 							<div>
 								<a
-									href="https://wa.me/2347086020732"
+									href="https://wa.me/2348141040068"
 									target="_blank"
 									rel="noreferrer"
 									className="contact-modal-whatsapp"
