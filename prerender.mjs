@@ -102,6 +102,18 @@ async function main() {
         () => { const r = document.getElementById('root'); return r && r.children.length > 0; },
         { timeout: 15000 },
       );
+      // Expand any progressive "Load more" lists so ALL items land in the
+      // static HTML for search/AI crawlers (the live app still starts at 8).
+      await page.evaluate(async () => {
+        const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+        for (let i = 0; i < 60; i++) {
+          const btn = [...document.querySelectorAll('button')]
+            .find((b) => /load more/i.test(b.textContent || ''));
+          if (!btn) break;
+          btn.click();
+          await sleep(120);
+        }
+      });
       await page.evaluate(async () => {
         await new Promise((resolve) => {
           let y = 0;

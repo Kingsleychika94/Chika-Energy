@@ -38,80 +38,411 @@ const featureCards = [
 ];
 
 const products = [
-	{ name: "UpEast 1KVA Hybrid Inverter", image: "/images/p1.jpeg" },
-	{ name: "UpEast 3KVA Hybrid Inverter", image: "/images/p2.jpeg" },
-	{ name: "UpEast 5KVA Hybrid Inverter", image: "/images/p3.jpeg" },
-	{ name: "UpEast 10KVA Hybrid Inverter", image: "/images/p4.jpeg" },
-	{ name: "UpEast 20KVA Commercial Hybrid Inverter", image: "/images/p5.jpeg" },
-	{ name: "UpEast 50KVA Industrial Hybrid Inverter", image: "/images/p6.jpeg" },
 	{
-		name: "UpEast 100kWh Industrial Energy Storage System",
+		name: "Dawnice 6 kVA Single-Phase Hybrid Inverter",
+		category: "Hybrid Inverter",
+		price: "₦900,000",
+		warranty: "2 YEARS",
+		description:
+			"Dawnice 6 kVA single-phase hybrid inverter for solar and battery energy systems; 6 kVA rated AC output; 7,800 W maximum DC/PV input; 85-400 V battery-voltage range; 50/60 Hz operation; compact wall-mounted enclosure with integrated display and system controls.",
+		image: "/images/p1.jpeg",
+	},
+	{
+		name: "Dawnice 10 kVA Single-Phase Hybrid Inverter",
+		category: "Hybrid Inverter",
+		price: "₦1,750,000",
+		warranty: "2 YEARS",
+		description:
+			"Dawnice 10 kVA single-phase hybrid inverter; 220/230/240 V rated output; 45-58 Vdc battery range with 51.2 Vdc nominal battery voltage; lithium and lead-acid battery compatibility; 15 kW maximum PV power; dual MPPT design with a 120-500 Vdc range; maximum charge current of 200 A; up to 97% inverter efficiency.",
+		image: "/images/p2.jpeg",
+	},
+	{
+		name: "Dawnice 5 kWh Lithium Battery - HZEB-LCT-5",
+		category: "Lithium Battery",
+		price: "₦1,550,000",
+		warranty: "5+5 YEARS",
+		description:
+			"Wall-mounted lithium iron phosphate (LiFePO₄) battery; 5 kWh capacity; 51.2 V / 100 Ah; 6,000+ cycles; smart BMS; Bluetooth/Wi-Fi connectivity; IP54-rated enclosure.",
+		image: "/images/p3.jpeg",
+	},
+	{
+		name: "Dawnice 10 kWh Lithium Battery - HZEB-LCT-10",
+		category: "Lithium Battery",
+		price: "₦2,450,000",
+		warranty: "5+5 YEARS",
+		description:
+			"Wall-mounted lithium iron phosphate (LiFePO₄) battery; 10 kWh capacity; 51.2 V / 206 Ah; 6,000+ cycles; smart BMS; Bluetooth/Wi-Fi connectivity; IP54-rated enclosure.",
+		image: "/images/p4.jpeg",
+	},
+	{
+		name: "Dawnice 16 kWh Lithium Battery - HZEB-LCT-16",
+		category: "Lithium Battery",
+		price: "₦3,200,000",
+		warranty: "5+5 YEARS",
+		description:
+			"Wall-mounted lithium iron phosphate (LiFePO₄) battery; 16 kWh capacity; 51.2 V / 314 Ah; 8,000+ cycles; smart BMS; Bluetooth/Wi-Fi connectivity; IP54-rated enclosure.",
+		image: "/images/p5.jpeg",
+	},
+	{
+		name: "Dawnice 20 kWh Lithium Battery - HZEB-LCT-20",
+		category: "Lithium Battery",
+		price: "₦4,500,000",
+		warranty: "5+5 YEARS",
+		description:
+			"Wall-mounted lithium iron phosphate (LiFePO₄) battery; 20 kWh capacity; 51.2 V / 410 Ah; 6,000+ cycles; smart BMS; Bluetooth/Wi-Fi connectivity.",
+		image: "/images/p6.jpeg",
+	},
+	{
+		name: "Dawnice 112.53 kWh Outdoor DC-Side Energy Storage Battery",
+		category: "Commercial & Industrial Battery",
+		price: "₦25,500,000",
+		warranty: "5+5 YEARS - BATTERY COVERAGE",
+		description:
+			"Outdoor DC-side LiFePO₄ battery cabinet with 112.53 kWh nominal energy, 358.4 V nominal voltage, 101.28 kWh usable energy at 90% depth of discharge, air cooling, IP54 protection and an 8,000+ cycle rating.",
 		image: "/images/p7.jpeg",
 	},
 	{
-		name: "UpEast 15kWh Residential Lithium Battery Storage System",
+		name: "Dawnice 112 kWh Indoor Industrial Lithium Battery",
+		category: "Commercial & Industrial Battery",
+		price: "₦24,500,000",
+		warranty: "5+5 YEARS",
+		description:
+			"Indoor industrial lithium battery energy storage system with 112 kWh nominal energy capacity. Suitable for commercial and industrial energy-storage applications.",
 		image: "/images/p8.jpeg",
 	},
 	{
-		name: "UpEast 100kWh Commercial Industrial Energy Storage System",
+		name: "Dawnice 143 kWh Indoor Rack-Mounted Commercial Battery",
+		category: "Commercial & Industrial Battery",
+		price: "₦28,500,000",
+		warranty: "5+5 YEARS",
+		description:
+			"Indoor rack-mounted commercial lithium battery system with 143 kWh energy capacity, designed for commercial facilities, industrial backup and peak-shaving applications.",
 		image: "/images/p9.jpeg",
 	},
 	{
-		name: "UpEast 250kWh Commercial Industrial Energy Storage System",
+		name: "Dawnice 160 kWh Indoor Rack-Mounted Commercial Battery",
+		category: "Commercial & Industrial Battery",
+		price: "₦32,000,000",
+		warranty: "5+5 YEARS",
+		description:
+			"Indoor rack-mounted commercial lithium battery system with 160 kWh energy capacity, intended for factory energy management, commercial backup and peak-shaving applications.",
 		image: "/images/p10.jpeg",
 	},
 	{
-		name: "UpEast 500kWh Commercial Industrial Energy Storage System",
+		name: "Dawnice 200 kWh Outdoor Energy Storage System",
+		category: "Commercial & Industrial Ess",
+		price: "₦48,000,000",
+		warranty: "5+5 YEARS",
+		description:
+			"Outdoor commercial and industrial energy storage system with 200 kWh battery capacity in an integrated cabinet platform for solar storage, backup power and energy-management applications.",
 		image: "/images/p11.jpeg",
 	},
 	{
-		name: "UpEast 1MWh Commercial Industrial Energy Storage System",
+		name: "Dawnice 225 kWh Indoor Industrial ESS - BS09-225-R/14S",
+		category: "Commercial & Industrial Ess",
+		price: "₦40,000,000",
+		warranty: "5+5 YEARS",
+		description:
+			"Rack-mounted indoor industrial energy storage system; 225 kWh capacity; presented with an 8,000-cycle rating.",
 		image: "/images/p12.jpeg",
 	},
 	{
-		name: "UpEast 2MWh Commercial Industrial Energy Storage System",
+		name: "Dawnice 225 kWh Outdoor Commercial BESS - BS09-225-D",
+		category: "Commercial & Industrial Battery",
+		price: "₦50,000,000",
+		warranty: "5+5 YEARS",
+		description:
+			"Outdoor 225 kWh DC-side battery energy storage system (BESS); 716.8 V commercial battery platform designed for stable, efficient and intelligently managed commercial and industrial energy solutions.",
 		image: "/images/p13.jpeg",
 	},
 	{
-		name: "UpEast 5MWh Commercial Industrial Energy Storage System",
+		name: "Dawnice 125 kW / 265 kWh Integrated Hybrid Energy System",
+		category: "Integrated C&I Energy System",
+		price: "₦90,000,000",
+		warranty: "5+5 YEARS - BATTERY COVERAGE",
+		description:
+			"Integrated PV-storage-genset hybrid energy system combining a 125 kW PCS with 265 kWh battery storage. Product visual also identifies fire protection, intelligent temperature control, 120 kW solar MPPT, and STS/ATS functionality.",
 		image: "/images/p14.jpeg",
 	},
 	{
-		name: "UpEast 10MWh Commercial Industrial Energy Storage System",
+		name: "Deye 6 kW Single-Phase Off-Grid Inverter",
+		category: "Off-Grid Inverter",
+		price: "₦600,000",
+		warranty: "5 YEARS",
+		description:
+			"Rated AC input and output active power of 6 kW; maximum charging and discharging current of 135 A; supports up to 16 units in parallel for on-grid and off-grid operation.",
 		image: "/images/p15.jpeg",
 	},
 	{
-		name: "UpEast Government Energy Solution System",
+		name: "Deye 6 kW Single-Phase Hybrid Inverter",
+		category: "Hybrid Inverter",
+		price: "₦1,550,000",
+		warranty: "5 YEARS",
+		description:
+			"Rated power of 6 kW; maximum charging and discharging current of 135 A; supports up to 16 units in parallel for flexible residential and commercial energy systems.",
 		image: "/images/p16.jpeg",
 	},
 	{
-		name: "UpEast Energy Solution for Churches & Mosques",
+		name: "Deye 8 kW Single-Phase Hybrid Inverter",
+		category: "Hybrid Inverter",
+		price: "₦1,650,000",
+		warranty: "5 YEARS",
+		description:
+			"Rated power of 8 kW; maximum charging and discharging current of 190 A; supports up to 16 units in parallel for flexible residential and commercial energy systems.",
 		image: "/images/p17.jpeg",
 	},
 	{
-		name: "UpEast Residential Solar Energy Solution",
+		name: "Deye 10 kW Single-Phase Hybrid Inverter",
+		category: "Hybrid Inverter",
+		price: "₦2,100,000",
+		warranty: "5 YEARS",
+		description:
+			"Rated power of 10 kW; colour touch LCD; IP65 enclosure; maximum charging and discharging current of 220 A; supports diesel-generator energy storage and up to 16 units in parallel.",
 		image: "/images/p18.jpeg",
 	},
-	{ name: "UpEast Residential Solar Panel", image: "/images/p19.jpeg" },
 	{
-		name: "UpEast Commercial & Government Solar Panel Solution",
+		name: "Deye 12 kW Single-Phase Hybrid Inverter",
+		category: "Hybrid Inverter",
+		price: "₦2,200,000",
+		warranty: "5 YEARS",
+		description:
+			"Rated power of 12 kW; colour touch LCD; IP65 enclosure; maximum charging and discharging current of 250 A; supports diesel-generator energy storage and up to 16 units in parallel.",
+		image: "/images/p19.jpeg",
+	},
+	{
+		name: "Deye 12 kW Three-Phase Hybrid Inverter",
+		category: "Hybrid Inverter",
+		price: "₦2,200,000",
+		warranty: "5 YEARS",
+		description:
+			"Three-phase hybrid inverter rated at 12 kW; maximum charging and discharging current of 240 A; supports up to 10 units in parallel.",
 		image: "/images/p20.jpeg",
 	},
-	{ name: "UpEast Glass Solar Panel Solution", image: "/images/p21.jpeg" },
 	{
-		name: "UpEast Transparent Glass Solar Panel Solution",
+		name: "Deye 16 kW Single-Phase Hybrid Inverter",
+		category: "Hybrid Inverter",
+		price: "₦3,300,000",
+		warranty: "5 YEARS",
+		description:
+			"Single-phase hybrid inverter rated at 16 kW; maximum charging and discharging current of 290 A; supports up to 16 units in parallel.",
+		image: "/images/p21.jpeg",
+	},
+	{
+		name: "Deye 16 kW Three-Phase Hybrid Inverter",
+		category: "Hybrid Inverter",
+		price: "₦3,300,000",
+		warranty: "5 YEARS",
+		description:
+			"Three-phase hybrid inverter rated at 16 kW; maximum charging and discharging current of 300 A; supports up to 10 units in parallel.",
 		image: "/images/p22.jpeg",
 	},
-	{ name: "UpEast Solar Street Light Solution", image: "/images/p23.jpeg" },
 	{
-		name: "UpEast Smart Solar Street Light Solution",
+		name: "Deye 20 kW Three-Phase Hybrid Inverter",
+		category: "Hybrid Inverter",
+		price: "₦3,850,000",
+		warranty: "5 YEARS",
+		description:
+			"Three-phase hybrid inverter rated at 20 kW; maximum charging and discharging current of 350 A; supports up to 10 units in parallel.",
+		image: "/images/p23.jpeg",
+	},
+	{
+		name: "Deye 25 kW Three-Phase High-Voltage Hybrid Inverter",
+		category: "High-Voltage Hybrid Inverter",
+		price: "₦3,950,000",
+		warranty: "5 YEARS",
+		description:
+			"Three-phase high-voltage hybrid inverter rated at 25 kW; maximum charging and discharging current of 50 A; supports up to 10 units in parallel.",
 		image: "/images/p24.jpeg",
 	},
 	{
-		name: "UpEast Solar Street Light Solution for Rural Communities",
+		name: "Deye 30 kW Three-Phase High-Voltage Hybrid Inverter",
+		category: "High-Voltage Hybrid Inverter",
+		price: "₦5,050,000",
+		warranty: "5 YEARS",
+		description:
+			"Three-phase high-voltage hybrid inverter rated at 30 kW; maximum charging and discharging current of 75 A; supports up to 10 units in parallel.",
 		image: "/images/p25.jpeg",
 	},
-	{ name: "UpEast Solar Accessories Kit", image: "/images/p26.jpeg" },
+	{
+		name: "Deye 50 kW Three-Phase High-Voltage Hybrid Inverter",
+		category: "High-Voltage Hybrid Inverter",
+		price: "₦6,050,000",
+		warranty: "5 YEARS",
+		description:
+			"Three-phase high-voltage hybrid inverter rated at 50 kW; maximum charging and discharging current of 100 A; supports diesel-generator storage and up to 10 units in parallel.",
+		image: "/images/p26.jpeg",
+	},
+	{
+		name: "Deye 80 kW Three-Phase High-Voltage Hybrid Inverter",
+		category: "High-Voltage Hybrid Inverter",
+		price: "₦8,800,000",
+		warranty: "5 YEARS",
+		description:
+			"Three-phase high-voltage hybrid inverter rated at 80 kW; maximum charging and discharging current of 160 A; supports diesel-generator storage and up to 10 units in parallel.",
+		image: "/images/p27.jpeg",
+	},
+	{
+		name: "Deye 5.12 kWh Low-Voltage Lithium Battery - SE-F5-C",
+		category: "Low-Voltage Lithium Battery",
+		price: "₦1,100,000",
+		warranty: "5 YEARS",
+		description:
+			"LiFePO₄ battery; 100 Ah; nominal voltage 51.2 V; operating voltage 44.8–57.6 V; nominal energy 5.12 kWh; supports up to 32 units in parallel; approximately 41 kg; 370 × 548 × 140 mm.",
+		image: "/images/p28.jpeg",
+	},
+	{
+		name: "Deye 10.24 kWh Low-Voltage Lithium Battery - SE-G10.2",
+		category: "Low-Voltage Lithium Battery",
+		price: "₦1,850,000",
+		warranty: "5 YEARS",
+		description:
+			"LiFePO₄ battery; 200 Ah; nominal voltage 51.2 V; operating voltage 44.8–57.6 V; nominal energy 10.24 kWh; 2P16S cell configuration; supports up to 64 units in parallel for systems up to 655 kWh.",
+		image: "/images/p29.jpeg",
+	},
+	{
+		name: "Deye 12 kWh Low-Voltage Lithium Battery - SE-F12-C",
+		category: "Low-Voltage Lithium Battery",
+		price: "₦2,550,000",
+		warranty: "5 YEARS",
+		description:
+			"LiFePO₄ battery; 230 Ah; nominal voltage 51.2 V; operating voltage 44.8–57.6 V; nominal energy 11.8 kWh; supports up to 32 units in parallel; approximately 84 kg; 400 × 559 × 233 mm.",
+		image: "/images/p30.jpeg",
+	},
+	{
+		name: "Deye 16 kWh Low-Voltage Lithium Battery - SE-F16-C",
+		category: "Low-Voltage Lithium Battery",
+		price: "₦2,750,000",
+		warranty: "5 YEARS",
+		description:
+			"LiFePO₄ battery; 314 Ah; nominal voltage 51.2 V; operating voltage 44.8–57.6 V; nominal energy 16 kWh; 2P16S cell configuration; supports up to 32 units in parallel for systems up to 655 kWh.",
+		image: "/images/p31.jpeg",
+	},
+	{
+		name: "Deye 5.12 kWh High-Voltage Lithium Battery Module",
+		category: "High-Voltage Lithium Battery",
+		price: "₦1,300,000",
+		warranty: "10 YEARS",
+		description:
+			"High-voltage lithium battery module for BOS-G25 Pro, BOS-G40 Pro, BOS-G60 Pro and BOS-G85 Pro systems, supporting system capacities from 25.6 to 87.04 kWh.",
+		image: "/images/p32.jpeg",
+	},
+	{
+		name: "Deye High-Voltage Controller Box - BOS-G-PDU-2",
+		category: "Battery Controller",
+		price: "₦1,300,000",
+		description:
+			"High-voltage controller box for Deye BOS-G Pro modular battery systems.",
+		image: "/images/p33.jpeg",
+	},
+	{
+		name: "Deye 7.68 kWh High-Voltage Lithium Battery Module",
+		category: "High-Voltage Lithium Battery",
+		price: "₦2,000,000",
+		warranty: "10 YEARS",
+		description:
+			"LiFePO₄ battery module; 200 Ah; CAN 2.0 communication; nominal voltage 38.4 V; nominal energy 7.68 kWh; operating humidity 5–85%; approximately 70 kg; 601.5 × 520 × 135 mm.",
+		image: "/images/p34.jpeg",
+	},
+	{
+		name: "Deye High-Voltage Controller Box - BOS-A-PDU-2",
+		category: "Battery Controller",
+		price: "₦1,750,000",
+		description:
+			"High-voltage controller box with 200–1000 Vdc operating range, 160 A maximum charge and discharge current, -20 to 65°C operating range and IP20 protection; 572 × 632 × 142.2 mm; approximately 21 kg.",
+		image: "/images/p35.jpeg",
+	},
+	{
+		name: "Deye 9-Layer Battery Rack - RACK 9 LAYERS",
+		category: "Battery Rack",
+		price: "₦600,000",
+		description:
+			"Nine-layer battery rack configured to hold eight BOS-G Pro 5 kWh high-voltage battery modules.",
+		image: "/images/p36.jpeg",
+	},
+	{
+		name: "Deye 11-Layer Battery Rack - RACK 11 LAYERS",
+		category: "Battery Rack",
+		price: "₦600,000",
+		description:
+			"Eleven-layer battery rack configured to hold ten BOS-A 7.68 kWh high-voltage battery modules.",
+		image: "/images/p37.jpeg",
+	},
+	{
+		name: "Deye 13-Layer Battery Rack - RACK 13 LAYERS",
+		category: "Battery Rack",
+		price: "₦650,000",
+		description:
+			"Thirteen-layer battery rack configured to hold twelve BOS-G Pro 5 kWh high-voltage battery modules.",
+		image: "/images/p38.jpeg",
+	},
+	{
+		name: "Deye 40 kWh High-Voltage Battery System - BOS-G 40KWH",
+		category: "High-Voltage Battery System",
+		price: "₦12,500,000",
+		warranty: "10 YEARS",
+		description:
+			"Complete high-voltage battery system comprising one 9-layer rack, one BOS-G-PDU-2 controller and eight BOS-G Pro 5 kWh battery modules.",
+		image: "/images/p39.jpeg",
+	},
+	{
+		name: "Deye 60 kWh High-Voltage Battery System - BOS-G 60KWH",
+		category: "High-Voltage Battery System",
+		price: "₦17,800,000",
+		warranty: "10 YEARS",
+		description:
+			"Complete high-voltage battery system comprising one 13-layer rack, one BOS-G-PDU-2 controller and twelve BOS-G Pro 5 kWh battery modules.",
+		image: "/images/p40.jpeg",
+	},
+	{
+		name: "Deye 16 kWh High-Voltage Lithium Battery Module",
+		category: "High-Voltage Lithium Battery",
+		price: "₦2,650,000",
+		warranty: "10 YEARS",
+		description:
+			"High-voltage lithium battery module supporting five to sixteen modules in series; suitable for PCS systems scalable from 100/125 kW to 2.5 MW.",
+		image: "/images/p41.jpeg",
+	},
+	{
+		name: "Deye Battery PDU and Communication Controller",
+		category: "Battery Controller",
+		price: "₦2,000,000",
+		description:
+			"Battery power-distribution and communication controller with PCS communication terminal for delivering battery information to the inverter.",
+		image: "/images/p42.jpeg",
+	},
+	{
+		name: "Deye Battery System Accessories",
+		category: "Battery Accessories",
+		price: "₦1,300,000",
+		description:
+			"Accessory package for the Deye BOS-B Pro 256 kWh high-voltage battery system.",
+		image: "/images/p43.jpeg",
+	},
+	{
+		name: "Deye 200 kW MPPT Module - MPPT 200KW",
+		category: "Solar Mppt Module",
+		price: "₦2,600,000",
+		description:
+			"Solar MPPT module supporting up to 200 kWp of connected PV capacity, with eight MPPT channels and 40 A current capacity per MPPT.",
+		image: "/images/p44.jpeg",
+	},
+	{
+		name: "Deye 125 kW Power Conversion System - SUN-125K-PCS01HP3",
+		category: "Power Conversion System",
+		price: "₦6,400,000",
+		warranty: "5 YEARS",
+		description:
+			"Power conversion system with 175/200 A charge and discharge capability, maximum efficiency of 98.5%, system ratings scalable up to 2.5 MW, 200% instantaneous peak capability, zero-export control and time-of-use operation.",
+		image: "/images/p45.jpeg",
+	},
+	{
+		name: "Deye 500 kW Static Transfer Switch - STS 500L",
+		category: "Static Transfer Switch",
+		price: "₦8,800,000",
+		description:
+			"Static transfer switch with 500 kW switching capacity, smooth grid, off-grid and diesel-generator transitions, and switching time below 10 ms.",
+		image: "/images/p46.jpeg",
+	},
 ];
 
 const services = [
@@ -480,15 +811,17 @@ function App() {
 	const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 	const [mobileSubnav, setMobileSubnav] = useState(null);
 	const [footerMobileSheetKey, setFooterMobileSheetKey] = useState(null);
-	const [expandedProduct, setExpandedProduct] = useState(null);
+	const [activeProduct, setActiveProduct] = useState(null);
 	const [productImagePreview, setProductImagePreview] = useState(null);
+	const [visibleCount, setVisibleCount] = useState(6);
 
 	useEffect(() => {
 		document.body.style.overflow =
 			isMobileNavOpen ||
 			isContactModalOpen ||
 			footerMobileSheetKey ||
-			productImagePreview
+			productImagePreview ||
+			activeProduct
 				? "hidden"
 				: "";
 		return () => {
@@ -499,6 +832,7 @@ function App() {
 		isContactModalOpen,
 		isMobileNavOpen,
 		productImagePreview,
+		activeProduct,
 	]);
 
 	useEffect(() => {
@@ -508,6 +842,7 @@ function App() {
 				setMobileSubnav(null);
 				setIsContactModalOpen(false);
 				setProductImagePreview(null);
+				setActiveProduct(null);
 			}
 		};
 
@@ -1024,98 +1359,70 @@ function App() {
 					</section>
 
 					<section className="products-grid">
-						{products.map((item) => (
-							<article key={item.name} className="product-card">
-								<div
-									className="product-card-media"
-									role="button"
-									tabIndex={0}
-									aria-label={`View ${item.name} image`}
-									onClick={() =>
-										setProductImagePreview({ src: item.image, alt: item.name })
-									}
-									onKeyDown={(e) => {
-										if (e.key === "Enter" || e.key === " ") {
-											e.preventDefault();
-											setProductImagePreview({
-												src: item.image,
-												alt: item.name,
-											});
-										}
-									}}
-								>
-									<img src={item.image} alt={item.name} className="pc-image" />
-								</div>
-								<div className="product-card-body">
-									<h3 className="product-card-title">{item.name}</h3>
-									{item.description ? (
-										<>
-											<button
-												type="button"
-												className="product-details-toggle"
-												aria-expanded={expandedProduct === item.name}
-												aria-controls={`product-details-${item.name
-													.toLowerCase()
-													.replace(/[^a-z0-9]+/g, "-")
-													.replace(/^-|-$/g, "")}`}
-												onClick={() =>
-													setExpandedProduct((current) =>
-														current === item.name ? null : item.name,
-													)
-												}
-											>
-												<span>
-													{expandedProduct === item.name
-														? "Hide details"
-														: "View details"}
-												</span>
-												<img
+						{products.slice(0, visibleCount).map((item) => {
+							const open = () => setActiveProduct(item);
+							return (
+								<article key={item.name} className="product-card">
+									<div
+										className="product-card-toggle"
+										role="button"
+										tabIndex={0}
+										aria-haspopup="dialog"
+										aria-label={`View details for ${item.name}`}
+										onClick={open}
+										onKeyDown={(e) => {
+											if (e.key === "Enter" || e.key === " ") {
+												e.preventDefault();
+												open();
+											}
+										}}
+									>
+										<div className="product-card-media">
+											<img
+												src={item.image}
+												alt={item.name}
+												className="pc-image"
+												loading="lazy"
+											/>
+										</div>
+										<div className="product-card-head">
+											<h3 className="product-card-title">{item.name}</h3>
+											<span className="product-card-hint">
+												<span>View details</span>
+												{/* <img
 													className="product-details-toggle-icon"
 													src="/details.svg"
 													alt=""
 													aria-hidden="true"
-												/>
-											</button>
-											<div
-												className={`product-details-panel${
-													expandedProduct === item.name ? " is-open" : ""
-												}`}
-												id={`product-details-${item.name
-													.toLowerCase()
-													.replace(/[^a-z0-9]+/g, "-")
-													.replace(/^-|-$/g, "")}`}
-											>
-												{Array.isArray(item.description) ? (
-													<ul className="product-details-list">
-														{item.description.map((entry) => (
-															<li key={entry}>{entry}</li>
-														))}
-													</ul>
-												) : (
-													<p className="product-details-text">
-														{item.description}
-													</p>
-												)}
-											</div>
-										</>
-									) : null}
-									<button
-										type="button"
-										className="product-quote-link"
-										onClick={openContactModal}
-									>
-										<span>Get Quote</span>
-										<img
-											className="product-quote-link-arrow"
-											src="/arrow-right-yellow.svg"
-											alt=""
-											aria-hidden="true"
-										/>
-									</button>
-								</div>
-							</article>
-						))}
+												/> */}
+											</span>
+										</div>
+									</div>
+									{/* Kept in the DOM (visually hidden) so search & AI crawlers
+									    still index the price and full description. */}
+									<div className="sr-only">
+										{item.price ? `${item.price}. ` : ""}
+										{item.description}
+									</div>
+								</article>
+							);
+						})}
 					</section>
+					{visibleCount < products.length ? (
+						<div className="products-loadmore">
+							<button
+								type="button"
+								className="primary-btn load-more-btn"
+								onClick={() => setVisibleCount((c) => c + 6)}
+							>
+								Load more products
+							</button>
+							<span className="products-loadmore-count">
+								Showing {Math.min(visibleCount, products.length)} of{" "}
+								{products.length}
+							</span>
+						</div>
+					) : null}
 					{/* <div className="catalog-cta">
 						<button
 							type="button"
@@ -1233,6 +1540,64 @@ function App() {
 							</div>
 						</div>
 					</section>
+				</div>
+			)}
+
+			{activeProduct && (
+				<div
+					className="product-modal-overlay"
+					onClick={() => setActiveProduct(null)}
+					role="presentation"
+				>
+					<div
+						className="product-modal"
+						role="dialog"
+						aria-modal="true"
+						aria-labelledby="product-modal-title"
+						onClick={(event) => event.stopPropagation()}
+					>
+						<button
+							type="button"
+							className="product-modal-close"
+							onClick={() => setActiveProduct(null)}
+							aria-label="Close"
+						>
+							&times;
+						</button>
+						<div className="product-modal-media">
+							<img src={activeProduct.image} alt={activeProduct.name} />
+						</div>
+						<div className="product-modal-body">
+							{activeProduct.category ? (
+								<span className="product-modal-cat">
+									{activeProduct.category}
+								</span>
+							) : null}
+							<h3 id="product-modal-title">{activeProduct.name}</h3>
+							{activeProduct.price ? (
+								<div className="product-price">{activeProduct.price}</div>
+							) : null}
+							{activeProduct.description ? (
+								<p className="product-desc">{activeProduct.description}</p>
+							) : null}
+							<button
+								type="button"
+								className="product-quote-link"
+								onClick={() => {
+									setActiveProduct(null);
+									openContactModal();
+								}}
+							>
+								<span>Get Quote</span>
+								<img
+									className="product-quote-link-arrow"
+									src="/arrow-right-yellow.svg"
+									alt=""
+									aria-hidden="true"
+								/>
+							</button>
+						</div>
+					</div>
 				</div>
 			)}
 
