@@ -542,7 +542,9 @@ function shuffle(list) {
 // Randomise product order on each load while keeping variety up top:
 // group by category, shuffle within each group, shuffle the group order,
 // then round-robin across groups so the first items mix categories & brands.
-function mixProducts(list) {
+// Order items so categories stay varied: shuffle within each category, shuffle
+// the category order, then round-robin across them.
+function categoryMix(list) {
 	const groups = new Map();
 	for (const item of list) {
 		const key = item.category || "Other";
@@ -564,6 +566,24 @@ function mixProducts(list) {
 	return out;
 }
 
+// Randomise order each load and keep category variety, but lean the ordering
+// toward Dawnice (~60%) so more Dawnice products surface in the first loads.
+const DAWNICE_SHARE = 0.6;
+function mixProducts(list) {
+	const dawnice = categoryMix(list.filter((p) => p.brand === "Dawnice"));
+	const rest = categoryMix(list.filter((p) => p.brand !== "Dawnice"));
+	const out = [];
+	let i = 0;
+	let j = 0;
+	while (i < dawnice.length || j < rest.length) {
+		const takeDawnice =
+			j >= rest.length ||
+			(i < dawnice.length && Math.random() < DAWNICE_SHARE);
+		out.push(takeDawnice ? dawnice[i++] : rest[j++]);
+	}
+	return out;
+}
+
 const creditStats = [
 	{ value: "5+", label: "Technology Partners" },
 	{ value: "10+", label: "Institutional & Strategic Partners" },
@@ -574,14 +594,13 @@ const creditStats = [
 // Crossed-out "before" price for higher-value items: a 10% markup above the
 // current price for items over ₦6M, 15% for items over ₦5M. The current (sheet)
 // price stays the live price. Returns null when no markup applies.
-// Discount shown on higher-value items: 10% off for items over ₦6M, 15% off
-// for items over ₦5M. Returns the crossed-out original price (so that
+// Discount shown on every product: 10% off for items above ₦6M, 15% off for
+// items ₦6M or under. Returns the crossed-out original price (so that
 // original → current is exactly that %) and the percentage for the badge.
 function priceDrop(priceStr) {
 	const n = Number(String(priceStr).replace(/[^\d]/g, ""));
 	if (!n) return null;
-	const pct = n > 6_000_000 ? 10 : n > 5_000_000 ? 15 : 0;
-	if (!pct) return null;
+	const pct = n > 6_000_000 ? 10 : 15;
 	const was = Math.round(n / (1 - pct / 100) / 1000) * 1000;
 	return { old: "₦" + was.toLocaleString("en-US"), pct };
 }
