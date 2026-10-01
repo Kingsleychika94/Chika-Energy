@@ -571,6 +571,21 @@ const creditStats = [
 	{ value: "500+", label: "Homes Powered" },
 ];
 
+// Crossed-out "before" price for higher-value items: a 10% markup above the
+// current price for items over ₦6M, 15% for items over ₦5M. The current (sheet)
+// price stays the live price. Returns null when no markup applies.
+// Discount shown on higher-value items: 10% off for items over ₦6M, 15% off
+// for items over ₦5M. Returns the crossed-out original price (so that
+// original → current is exactly that %) and the percentage for the badge.
+function priceDrop(priceStr) {
+	const n = Number(String(priceStr).replace(/[^\d]/g, ""));
+	if (!n) return null;
+	const pct = n > 6_000_000 ? 10 : n > 5_000_000 ? 15 : 0;
+	if (!pct) return null;
+	const was = Math.round(n / (1 - pct / 100) / 1000) * 1000;
+	return { old: "₦" + was.toLocaleString("en-US"), pct };
+}
+
 const services = [
 	// {
 	// 	name: "PAYG Systems",
@@ -1742,7 +1757,19 @@ function App() {
 							) : null}
 							<h3 id="product-modal-title">{activeProduct.name}</h3>
 							{activeProduct.price ? (
-								<div className="product-price">{activeProduct.price}</div>
+								<div className="product-price-row">
+									<span className="product-price">{activeProduct.price}</span>
+									{priceDrop(activeProduct.price) ? (
+										<div className="product-price-sub">
+											<span className="product-price-old">
+												{priceDrop(activeProduct.price).old}
+											</span>
+											<span className="product-discount-badge">
+												-{priceDrop(activeProduct.price).pct}%
+											</span>
+										</div>
+									) : null}
+								</div>
 							) : null}
 							{activeProduct.description ? (
 								<p className="product-desc">{activeProduct.description}</p>
