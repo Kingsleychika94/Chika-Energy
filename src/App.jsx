@@ -577,8 +577,7 @@ function mixProducts(list) {
 	let j = 0;
 	while (i < dawnice.length || j < rest.length) {
 		const takeDawnice =
-			j >= rest.length ||
-			(i < dawnice.length && Math.random() < DAWNICE_SHARE);
+			j >= rest.length || (i < dawnice.length && Math.random() < DAWNICE_SHARE);
 		out.push(takeDawnice ? dawnice[i++] : rest[j++]);
 	}
 	return out;
@@ -1412,15 +1411,15 @@ function App() {
 						<span className="section-badge">About us</span>
 						<h2>Innovative Energy Solutions with Long-Term Impact</h2>
 						<p>
-							UpEast Energies Solutions Limited is an innovative energy and
-							infrastructure company committed to delivering reliable,
-							efficient, and sustainable power solutions. Through advanced
-							technology, strategic partnerships, and industry expertise, the
-							company develops and manages energy systems that support economic
-							growth and strengthen communities. With a commitment to excellence
-							and long-term impact, UpEast Energies Solutions provides
-							forward-thinking solutions that power industries, enable
-							development, and help shape the future
+							UpEast Energies Limited is an innovative energy and infrastructure
+							company committed to delivering reliable, efficient, and
+							sustainable power solutions. Through advanced technology,
+							strategic partnerships, and industry expertise, the company
+							develops and manages energy systems that support economic growth
+							and strengthen communities. With a commitment to excellence and
+							long-term impact, UpEast Energies provides forward-thinking
+							solutions that power industries, enable development, and help
+							shape the future
 						</p>
 					</Reveal>
 
@@ -1429,11 +1428,11 @@ function App() {
 							<article className="roadmap-copy">
 								<h3>Future roadmap</h3>
 								<p>
-									UpEast Energies Solutions Limited is committed to becoming the
-									leading diversified energy company that makes reliable,
-									affordable, and clean energy accessible to everyone. We focus
-									on closing the energy gap, empowering communities, and
-									enabling sustainable growth across Africa.
+									UpEast Energies Limited is committed to becoming the leading
+									diversified energy company that makes reliable, affordable,
+									and clean energy accessible to everyone. We focus on closing
+									the energy gap, empowering communities, and enabling
+									sustainable growth across Africa.
 								</p>
 								<div className="roadmap-tabs">
 									{roadmapItems.map((item) => (
@@ -1474,10 +1473,10 @@ function App() {
 							<header className="roadmap-mobile-intro">
 								<h3>Future roadmap</h3>
 								<p>
-									UpEast Energies Solutions Limited is committed to becoming the
-									leading diversified energy company in Africa by delivering
-									reliable, affordable, and clean energy that closes the energy
-									gap and drives sustainable growth.
+									UpEast Energies Limited is committed to becoming the leading
+									diversified energy company in Africa by delivering reliable,
+									affordable, and clean energy that closes the energy gap and
+									drives sustainable growth.
 								</p>
 							</header>
 							{roadmapItems.map((item) => (
